@@ -1,0 +1,6 @@
+{
+  "directory": "new-dir",
+  "filename":  "new-tech-memo",
+  "_copy_without_render": ["*"]
+}
+

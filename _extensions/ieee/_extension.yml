@@ -1,0 +1,22 @@
+title: uarto Tech Memo (legacy IEEE)
+author: Gael Close
+version: 0.1.0
+contributes:
+  formats:
+    pdf:
+      template: ieee-template.tex
+      fig-format: png
+      cite-method: citeproc
+      link-citations: true # disable in final IEEE paper as per IEEE policy
+      format-resources:
+        - IEEEtran.cls
+        - ieeeaccess.cls
+        - ieee-preamble.tex
+      csl: ieee-with-url.csl
+      shift-heading-level-by: -1
+      filters:
+        - custom.lua
+      date: last-modified
+      date-format: "DD-MMM-YYYY@HH:mm"
+      keep-tex: true  
+  

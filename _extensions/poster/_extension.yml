@@ -1,0 +1,23 @@
+title: Quarto Tech Memo
+author: Gael Close
+version: 0.1.0
+quarto-required: ">=1.7.31"
+contributes:
+  formats:
+    typst:
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
+      filters:
+        - custom.lua  
+      shortcodes:
+        - shortcodes.lua
+      keep-typ: true
+      citeproc: true
+      csl: ieee-with-url.csl
+      date: last-modified
+      date-format: "DD-MMM-YYYY (HH:mm)"
+      format-resources:
+        - defaults.typ
+        - utils.typ
+      shift-heading-level-by: -1
