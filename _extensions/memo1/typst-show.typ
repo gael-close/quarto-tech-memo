@@ -84,9 +84,6 @@ $if(mathfont)$
 $elseif(brand.defaults.academic-typst.mathfont)$
   mathfont: ("$brand.defaults.academic-typst.mathfont$"),
 $endif$
-$if(brand.typography.link.color)$
-  link-color: $brand.typography.link.color$,
-$endif$
 // Structure settings
 $if(section-numbering)$
   sectionnumbering: "$section-numbering$",

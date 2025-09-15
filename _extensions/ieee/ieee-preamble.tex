@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage[hyphens]{url}
 \usepackage{threeparttable}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{makecell}
@@ -46,12 +46,13 @@
 }
 
 % color links
+\definecolor{MyDSB}{RGB}{72,61,139}
 \usepackage{hyperref}
 \hypersetup{%
   % Preprint: colorlinks OK
-  % colorlinks=true, linkcallcolors=teal,
+  colorlinks=true, allcolors=MyDSB,
   % Final: hide links
-  hidelinks=true,
+  % hidelinks,
   bookmarksnumbered=true,%
   bookmarksopen=true}
 

@@ -1,6 +1,6 @@
 ---
 title: Formatting Technical Memo with Quarto
-subtitle: A minimum example
+subtitle: A minimum example using the quarto-tech-memo extension
 abstract: |
  This is an minimum technical memo containing the usual elements of technical writing: 
  figure, table, equation, citation, bibliography, code snippet, and appendix.
@@ -23,23 +23,23 @@ affiliations:
 bibliography: biblio.bib
 format:
     memo1-typst: default
-url: https://www.morges-tourisme.ch/en # without https://
+url: https://github.com/gael-close/quarto-tech-memo
 ---
 
 ## Overview 
 
-The document contains all standard elements of a technical writing.
-$f(x)=x^2$ is an inline equation while eq. @eq-field is a numbered equation.
-[In memo style, margin notes are supported, including small **inline** image and equation $e^{\pi i} + 1 = 0$.
-![figs/small-fig.png](figs/small-fig.png){width=3cm}  
+The minimum example contains all standard elements of a technical writing
+to illustrate the formatting styles provided by the [quarto-tech-memo extension](https://github.com/gael-close/quarto-tech-memo).
+Let's start with some math: $e^{\pi i} + 1 = 0$ is an inline equation, 
+[In memo style, margin notes are supported, 
+including small **inline** image.
+![figs/small-fig.png](figs/small-fig.png){width=3cm} 
 They shouldn't be used in 2-column paper style.]{.aside}
-@close2022 is a citation in IEEE style.
-@fig-placeholder shows a numbered figure.
-@tbl-placeholder is a numbered table.
-Here is a physical quantity: 1 μT (1 microtesla), note the thin non-breaking space.
-In IEEE legacy PDF, one need to use the math mode or the SI unit package to render the greek letters.
-Syntax highlighting is supported in code snippets.
-Moreover, callout boxes are available for tips, notes, warnings, and important remarks.
+Eq. @eq-field is a numbered equation.
+Here is a physical quantity with unit: 1 μT (1 microtesla),
+note the thin non-breaking space.
+In IEEE legacy PDF, one need to use the math mode
+or the SI unit package to render the greek letters.
 
 $$
 \nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t} 
@@ -49,6 +49,11 @@ $$ {#eq-field}
 {{< lipsum 1 >}}
 ![Figure caption.](https://dummyimage.com/300x100){#fig-placeholder} 
 -->
+
+
+@close2022 is a citation in IEEE style.
+@fig-placeholder shows a numbered figure.
+@tbl-placeholder is a numbered table.
 
 ![Figure caption.](figs/data-plot.png){#fig-placeholder width=3in }
 
@@ -62,6 +67,10 @@ $$ {#eq-field}
 
 {{< colbreak >}}
 
+Syntax highlighting is supported in code snippet too.
+Moreover, callout boxes are available for tips, notes, warnings, and important remarks,
+with appropriate icons or colors.
+
 ```python
 def f(x, square=True):
     # Python code snippet
@@ -69,8 +78,10 @@ def f(x, square=True):
 ```
 
 ::: {.callout-note title="Markdown syntax"}
-The document is written in Markdown, a plain-text **easy syntax**. See the 
-[Quarto documentation](https://quarto.org/docs/authoring/markdown-basics.html).
+The manuscript is written in [Markdown](https://quarto.org/docs/authoring/markdown-basics.html), 
+a plain-text **easy syntax**.
 :::
 
-**DUMMY TEXT**. *{{< lipsum 1 >}}*
+## Dummy text
+
+*{{< lipsum 1 >}}*

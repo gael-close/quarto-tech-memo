@@ -1,14 +1,7 @@
 
 // --- Almost identical to memo/typst-template.typ ---
 
-#import "@preview/fontawesome:0.5.0": *
-
-// Sidenote style
-#import "@preview/marginalia:0.2.3" as marginalia: note, notefigure, wideblock
-#show: marginalia.setup.with(
-  outer: ( far: 5mm, width: 45mm, sep: 5mm ),
-  book: false,
-)
+#import "@preview/fontawesome:0.6.0": *
 
 #let article(
   // Document metadata
@@ -234,3 +227,10 @@
     ]
   )
 ]
+
+// Sidenote style
+#import "@preview/marginalia:0.2.3" as marginalia: note, notefigure, wideblock
+#show: marginalia.setup.with(
+  outer: ( far: 5mm, width: 45mm, sep: 5mm ),
+  book: false,
+)

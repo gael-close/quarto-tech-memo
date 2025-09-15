@@ -27,3 +27,4 @@ function Span(elem)
   elem.classes = remove_class(elem.classes, "aside")
   return elem
 end
+

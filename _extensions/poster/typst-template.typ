@@ -1,5 +1,8 @@
-// Imported and simplified from https://github.com/baptiste/poster-syndrome/
+// Include inline the content of https://github.com/baptiste/poster-syndrome/ for full control
+// And simplify
+// #import "@preview/poster-syndrome:0.1.0": *
 
+#import "@preview/fontawesome:0.6.0": *
 #import "utils.typ": *
 
 // in mm. SImilar to A3 a bit wider ~ 16/9
@@ -10,11 +13,9 @@
   height: 300,
 )
 
-#set text(size: 12pt)
 //# height is irrelevant as it will be determined by content
 #let _default-frames = (
   title:       (x: 10,   y: 5,      width: 480,  height: 0),
-  authors:     (x: 10,   y: 15,     width: 480, height: 0),
   qrcode:      (x: 465,  y: 2.5,      width: 0,    height: 0),
   main:        (x: 10,   y: 35,     width: 480, height: 875),)
 
@@ -24,7 +25,6 @@
     base: luma(10%),
     fg: black,
     bg: white,
-    highlight:navy,
     contrast:navy,
     melon: aqua,
   ),
@@ -42,53 +42,51 @@
     text: (
       title: (
         font: fonts.base,
-        size: 1.5em,
+        size: 24pt,
         weight: "bold",
         fill: palette.contrast,
       ),
-
       author: (
-        size: 1.2em,
+        size: 16pt,
         weight: "regular",
-        fill: palette.highlight.darken(40%),
+        
       ),
       affiliation: (
-        font: fonts.raw,
-        weight: 300,
-        fill: palette.highlight.darken(40%),
-        size: 1em,
+        weight: "thin",
+        fill: palette.contrast.lighten(0%),
+        size: 12pt,
       ),
       date: (
-        font: fonts.raw,
-        fill: palette.highlight.darken(40%), size: 1em),
-      
+        weight: "thin",
+        size: 9pt,
+        fill: palette.contrast.lighten(30%)
+      ),
       heading: (
-        size: 1.7em,
+        size: 14pt,
         font: fonts.base,
         weight: "regular",
-        fill: palette.highlight.darken(40%),
+        fill: palette.contrast,
       ),
       subheading: (
-        size: 1.2pt,
+        size: 12pt,
         font: fonts.base,
         features: (smcp: 1, c2sc: 1, onum: 1),
         weight: "regular",
-        fill: palette.highlight.darken(40%),
+        fill: palette.contrast,
       ),
       outlook: (fill: luma(30%)),
       default: (
-        size: 1em,
+        size: 11pt,
         font: fonts.base,
       ),
       raw: (font: fonts.raw),
       math: (font: fonts.math),
     ),
     par: (
-      title: (leading: 0.5em),
-      subtitle: (:),
-      author: (leading: 0.8em),
-      affiliation: (leading: 0.8em),
-      date: (leading: 0.8em),
+      title: (leading: 0em, spacing: 0.3em),
+      author: (leading: 0em, spacing: 0.3em),
+      affiliation: (leading: 0em, spacing: 0.3em),
+      date: (leading: 0em),
       subheading: (:),
       outlook: (justify: false),
       default: (justify: true, leading: 0.52em),
@@ -143,6 +141,7 @@
 
 #let poster-syndrome(
   title: none, 
+  subtitle: none,
   abstract: none,
   authors: none,
   affiliation: none,
@@ -194,33 +193,51 @@
 
   set image(width: 100%)
 
-  show "•": text.with(weight: "extralight", fill: palette.highlight)
-  show "·": text.with(weight: "extralight", fill: palette.highlight)
+  show "•": text.with(weight: "extralight", fill: palette.contrast)
+  show "·": text.with(weight: "extralight", fill: palette.contrast)
 
   set list(marker: text([•], baseline: 0pt))
-  set enum(numbering: n => text(fill: palette.highlight.darken(20%))[#n ·])
+  set enum(numbering: n => text(fill: palette.contrast.darken(20%))[#n ·])
 
   show bibliography: it => {
-  show link: set text(fill: palette.contrast.darken(40%))
+  show link: set text(fill: rgb("#483d8b"))
 
-  set enum(numbering: n => text(fill: palette.highlight.darken(20%))[#n ·])
+  set enum(numbering: n => text(fill: palette.contrast.darken(20%))[#n ·])
   it
   }
 
+  show link: set text(fill: rgb("#483d8b")) // Needed here too for links in body text
+  let count = authors.len()
+  let ncols = calc.min(count, 3)
+  
   // set fixed frames
-
   frame(tag: "title")[
     #show: styles.title
-    #title
+    #title #text(size: 20pt, weight: "regular")[| #subtitle]
+
+
+
+    #grid(
+      columns: (1fr,) * ncols,
+      row-gutter: 1.5em,
+      ..authors.map(author => align(left)[
+        #show: styles.author
+        #author.name
+        #if author.orcid != [] {
+          link("https://orcid.org/" + author.orcid.text)[
+            #set text(size: 0.85em, fill: rgb("a6ce39"))
+            #fa-icon("orcid")
+          ]
+        } \
+        #show: styles.affiliation
+        #author.affiliation
+
+        #text(size: 8pt, weight: "thin")[
+        #link("mailto:" + author.email.children.map(email => email.text).join())[#author.email]]
+      ])
+    )    
   ]
-  frame(tag: "authors")[
-    #show: styles.author
-    #authors | #date
-    // #show: styles.affiliation 
-    // #affiliation 
-    // #show: styles.date
-    
-  ]
+
 
   frame(tag: "qrcode")[
     #if qr-code != none {
@@ -270,3 +287,25 @@
     frame: frame,
   )
 }
+
+// Table style
+#set table(stroke: none)
+#show table.cell.where(y: 0): strong
+// from the doc
+#let frame(stroke) = (x, y) => (
+  top: if y < 2 { stroke } else { 0pt },
+  bottom: stroke,
+)
+#set table(
+  // fill: (_, y) => if calc.odd(y) { rgb("EAF2F5") },
+  stroke: frame(black),
+)
+#import "@preview/codetastic:0.2.2": qrcode
+
+// Sidenote style
+#import "@preview/marginalia:0.2.3" as marginalia: note, notefigure, wideblock
+#show: marginalia.setup.with(
+  outer: ( far: 5mm, width: 45mm, sep: 5mm ),
+  book: false,
+)
+

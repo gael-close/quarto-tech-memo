@@ -4,11 +4,11 @@
 
 function Span(span)
   if span.classes:includes("aside") then
-    -- Process inline aside annotation
+    -- Teat aside like parenthesis
     return {
-      pandoc.RawInline("typst", "#note(numbering: none, text-style: (size: 8pt))["),
+      pandoc.RawInline("typst", "("),
       span,
-      pandoc.RawInline("typst", "]")
+      pandoc.RawInline("typst", ")")
     }
     
 

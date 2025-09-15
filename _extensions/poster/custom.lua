@@ -9,10 +9,19 @@ function remove_class(classes, classname)
   return new_classes
 end
 
-function Span(elem)
-  -- Change '.myclass' to the class you want to remove
-  elem.classes = remove_class(elem.classes, "aside")
-  return elem
+
+function Span(span)
+  if span.classes:includes("aside") then
+    span.classes = remove_class(span.classes, "aside")
+    -- Teat aside like parenthesis
+    return {
+      pandoc.RawInline("typst", "("),
+      span,
+      pandoc.RawInline("typst", ")")
+    }
+    
+
+  end
 end
 
 -- Format tables with automatic column widths
