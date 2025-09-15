@@ -28,7 +28,7 @@ def save(c):
     c.run(f'''
         
         (cd ~/Downloads/new-dir; cp thumbnail-*.png $B4/quarto-tech-memo/thumbnails; cp new-tech-memo-*.pdf $B4/quarto-tech-memo/examples;);
-        (cd thumbnails; svg2pdf thumbnails.svg);  
+        (cd thumbnails; resvg --200 thumbnails.svg thumbnails.png; svg2pdf thumbnails.svg);  
         ''')
 
 

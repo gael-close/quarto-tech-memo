@@ -7,6 +7,18 @@ with ample room for sidenotes and small figures in the margin.
 Inspired by [Tufte handout style](https://rstudio.github.io/tufte/).
 The intended use is for brief technical memos and preprints of scientific articles.
 In addition, a 2-column compact variant and a 3-column A3 poster variants are provided.
+For reference, a legacy IEEE paper style is also included---using the LaTeX engine.
+
+The following screenshot (click image for a larger PDF) shows the 3 variants of the same document, plus the legacy IEEE style.
+**All are formatted from the same source** in a few seconds
+(the IEEE style, with the legacy Latex engine, dominates the rendering time).
+All generated PDF files are included in the [examples](examples) folder.
+
+<a href="thumbnails/thumbnails.pdf">
+<img width=600 src=thumbnails/thumbnails.png>
+</a>
+
+
 
 ## Quick start
 
@@ -28,7 +40,7 @@ quarto preview new-tech-memo.md
 To use in an existing Quarto project as an extension, run
 
 ```bash
-quarto add https://github.com/gael-close/quarto-tech-memo/archive/refs/heads/master.zip
+quarto add https://github.com/gael-close/quarto-tech-memo/
 ```
 
 ---
@@ -47,7 +59,7 @@ They are still included inline in the main paragraph nevertheless.
 ## Development
 
 Run a test suite with [Invoke](https://www.pyinvoke.org/),
-formatting the memo in all variants and opening the resulting PDF with `zathura`.
+formatting the memo in all variants.
 
 ```bash
 invoke test (--gh)
