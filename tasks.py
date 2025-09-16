@@ -27,8 +27,8 @@ def test(c, gh=False, format='all'):
 def save(c):
     c.run(f'''
         
-        (cd ~/Downloads/new-dir; cp thumbnail-*.png $B4/quarto-tech-memo/thumbnails; cp new-tech-memo-*.pdf $B4/quarto-tech-memo/examples;);
-        (cd thumbnails; resvg --200 thumbnails.svg thumbnails.png; svg2pdf thumbnails.svg);  
+        (cd ~/Downloads/new-dir; cp new-tech-memo-*.pdf $B4/quarto-tech-memo/examples;);
+        (cd examples; resvg --dpi 300 collage.svg collage.png; svg2pdf collage.svg);  
         ''')
 
 
