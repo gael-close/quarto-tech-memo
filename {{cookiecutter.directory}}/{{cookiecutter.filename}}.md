@@ -11,13 +11,29 @@ abstract: |
 keywords: Quarto, technical writing, memo, paper, poster
 author:
   - name: First Author
-    email: abc@email.ch
-    orcid: 0000-0000-0000-0000
+    email: firstc@email.ch
+    orcid: 0000-0000-0000-0001
     affiliation: [{ref: 1}]
-    corresponding: true
+  - name: Second Author
+    email: second@email.ch
+    orcid: 0000-0000-0000-0002
+    affiliation: [{ref: 2}]
+  - name: Third Author
+    email: third@email.ch
+    orcid: 0000-0000-0000-0003
+    affiliation: [{ref: 1}]
+    
 affiliations:
   - id: 1
     name: Magic Technologies SA
+    city: Morges
+    country: Switzerland
+  - id: 2
+    name: Another Corporate Inc
+    city: Palo Alto
+    country: USA
+  - id: 1
+    name: Magic Technologies I SA
     city: Morges
     country: Switzerland
 bibliography: biblio.bib

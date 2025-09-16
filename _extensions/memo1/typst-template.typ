@@ -6,6 +6,8 @@
   title: none,
   subtitle: none,
   authors: none,
+  author-list: none,
+  affiliation-list: none,
   date: none,
   abstract: none,
   abstract-title: "ABSTRACT",
@@ -123,27 +125,37 @@
       ]]
   }
   
-  if authors != none {
-    let count = authors.len()
-    let ncols = calc.min(count, 3)
-    grid(
-      columns: (1fr,) * ncols,
-      row-gutter: 1.5em,
-      ..authors.map(author => align(left)[
-        #text(size: 1.2em, font: sansfont)[#author.name]
-        #if author.orcid != [] {
-          link("https://orcid.org/" + author.orcid.text)[
-            #set text(size: 0.85em, fill: rgb("a6ce39"))
-            #fa-orcid()
-          ]
-        } \
-        #text(size: 0.85em, font: sansfont)[#author.affiliation] \
-        #text(size: 0.7em, font: sansfont, fill: link-color)[
-          #link("mailto:" + author.email.children.map(email => email.text).join())[#author.email]
-        ]
-      ])
-    )
-  }
+  // Block-level author display
+  // if authors != none {
+  //   let count = authors.len()
+  //   let ncols = calc.min(count, 3)
+  //   grid(
+  //     columns: (1fr,) * ncols,
+  //     row-gutter: 1.5em,
+  //     ..authors.map(author => align(left)[
+  //       #text(size: 1.2em, font: sansfont)[#author.name]
+  //       #if author.orcid != [] {
+  //         link("https://orcid.org/" + author.orcid.text)[
+  //           #set text(size: 0.85em, fill: rgb("a6ce39"))
+  //           #fa-orcid()
+  //         ]
+  //       } \
+  //       #text(size: 0.85em, font: sansfont)[#author.affiliation] \
+  //       #text(size: 0.7em, font: sansfont, fill: link-color)[
+  //         #link("mailto:" + author.email.children.map(email => email.text).join())[#author.email]
+  //       ]
+  //     ])
+  //   )
+  // }
+
+  // Inline author display with super script for affiliation
+  let orcidlink(id) = link("https://orcid.org/" + id)[
+    #set text(size: 0.85em, fill: rgb("a6ce39"))
+    #fa-orcid()
+  ]
+  
+  text(size: 1.2em, font: sansfont)[#eval(author-list.join(", "), mode: "markup", scope: (orcidlink: orcidlink)) \ ]
+  text(size: 0.85em, font: sansfont)[#eval(affiliation-list.join("\ "), mode: "markup")]
 
   if abstract != none {
     block(inset: 2em)[

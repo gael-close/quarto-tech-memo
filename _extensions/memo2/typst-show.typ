@@ -19,6 +19,16 @@ $endif$
 $endfor$
     ),
 $endif$
+
+// Helper list added by GCL
+$if(by-author)$
+  author-list:(
+    $for(by-author)$
+    "$by-author.name.literal$#super[$for(by-author.affiliations)$$it.number$$sep$,$endfor$]$if(by-author.orcid)$#orcidlink(\"$by-author.orcid$\")"
+    $endif$$sep$, $endfor$,),
+  affiliation-list: ($for(affiliations)$"#super[$it.number$] $affiliations.name$"$sep$,$endfor$,),
+$endif$
+
 $if(date)$
   date: [$date$],
 $endif$
@@ -94,6 +104,7 @@ $endif$
   cols: $if(columns)$$columns$$else$1$endif$,
   doc,
 )
+
 
 
 

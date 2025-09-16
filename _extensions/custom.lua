@@ -1,6 +1,17 @@
 
 -- To debug the Lua filter, run it one dev.md minimum example file:
--- pandoc dev.md -t typst --lua-filter custom.lua
+-- pandoc dev.md -t typst --lua-filter custom.lua 
+
+
+-- Test/debugging functions
+
+-- Function in Development
+-- function Pandoc(doc)
+--   print("\n## Inside Pandoc filter ##\n")
+--   print(stringify_authors(authors))
+-- return pandoc.Pandoc({}, doc.meta)
+-- end
+
 
 
 
@@ -15,6 +26,19 @@ function remove_class(classes, classname)
   end
   return new_classes
 end
+
+--  Emulate my quarto.doc.is_format() if not running in Quarto
+if not quarto then
+  quarto = {}
+  quarto.doc = {}
+end
+if not quarto.doc.is_format then
+  -- Minimal Pandoc-compatible implementation
+  function quarto.doc.is_format(fmt)
+    return FORMAT == fmt or (FORMAT and FORMAT:match(fmt))
+  end
+end
+
 
 
 -- Treat aside as node in typst
@@ -71,3 +95,7 @@ function Pandoc(doc)
   end
   return doc
 end
+
+
+
+
