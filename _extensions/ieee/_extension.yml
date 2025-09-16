@@ -12,12 +12,12 @@ contributes:
         - IEEEtran.cls
         - ieeeaccess.cls
         - ieee-preamble.tex
-      csl: ieee-with-url.csl
+      csl: ../ieee-with-url.csl
       shift-heading-level-by: -1
-      shortcodes:
-        - shortcodes.lua
       filters:
-        - custom.lua
+        - ../custom.lua
+      shortcodes:
+        - ../shortcodes.lua
       date: last-modified
       date-format: "DD-MMM-YYYY@HH:mm"
       keep-tex: true  

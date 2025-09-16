@@ -216,21 +216,9 @@
 )
 
 
-// Customization for 2-column paper style
-#let note(body, ..arg) = [
-  #box(
-    inset: 0.2em,
-    stroke: luma(70%),
-    radius: 0.3em,
-    [
-      #body
-    ]
-  )
-]
+// Side note are not supported in 2-column paper style
+// Replace them with simple parenthesized text
+#let note(body, ..arg) = [[#body]]
+  
 
-// Sidenote style
-#import "@preview/marginalia:0.2.3" as marginalia: note, notefigure, wideblock
-#show: marginalia.setup.with(
-  outer: ( far: 5mm, width: 45mm, sep: 5mm ),
-  book: false,
-)
+

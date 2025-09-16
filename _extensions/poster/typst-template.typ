@@ -302,10 +302,6 @@
 )
 #import "@preview/codetastic:0.2.2": qrcode
 
-// Sidenote style
-#import "@preview/marginalia:0.2.3" as marginalia: note, notefigure, wideblock
-#show: marginalia.setup.with(
-  outer: ( far: 5mm, width: 45mm, sep: 5mm ),
-  book: false,
-)
-
+// Side note are not supported in poster
+// Replace them with simple parenthesized text
+#let note(body, ..arg) = [[#body]]
