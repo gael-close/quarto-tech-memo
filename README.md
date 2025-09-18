@@ -14,8 +14,8 @@ The following screenshot (click image for a larger PDF) shows the 3 variants of 
 (the IEEE style, with the legacy Latex engine, dominates the rendering time).
 All generated PDF files are included in the [examples](examples) folder.
 
-<a href="thumbnails/thumbnails.pdf">
-<img width=600 src=thumbnails/thumbnails.png>
+<a href="examples/collage.pdf">
+<img width=600 src=examples/collage.png>
 </a>
 
 
