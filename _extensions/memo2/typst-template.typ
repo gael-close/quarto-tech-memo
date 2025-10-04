@@ -8,6 +8,8 @@
   title: none,
   subtitle: none,
   authors: none,
+  author-list: none,
+  affiliation-list: none,
   date: none,
   abstract: none,
   abstract-title: "ABSTRACT",
@@ -33,7 +35,7 @@
   sectionnumbering: none,
   pagenumbering: "1",
   toc: false,
-  cols: 1,
+  cols: 2,
   doc,
 ) = {
   set page(

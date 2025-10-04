@@ -101,7 +101,7 @@ $endif$
 $if(toc)$
   toc: $toc$,
 $endif$
-  cols: $if(columns)$$columns$$else$1$endif$,
+  cols: 2,
   doc,
 )
 

@@ -10,7 +10,7 @@ def test(c, gh=False, format='all'):
         cookiecutter -f {'gh:gael-close' if gh else '$B4'}/quarto-tech-memo {'--no-input' if not gh else ''} ; cd new-dir;''')
     
     if format=='all': 
-        formats = ['memo1-typst', 'memo2-typst', 'poster-typst', 'ieee-pdf']
+        formats = ['memo1-typst', 'memo2-typst', 'poster-typst', 'ieee-pdf', 'slides-typst']
     else:
         formats = [format]
     for fmt in formats:
@@ -28,7 +28,7 @@ def save(c):
     c.run(f'''
         
         (cd ~/Downloads/new-dir; cp new-tech-memo-*.pdf $B4/quarto-tech-memo/examples;);
-        (cd examples; resvg --dpi 300 collage.svg collage.png; svg2pdf collage.svg);  
+        (cd examples; resvg --dpi 300 collage.svg collage.png;);  
         ''')
 
 

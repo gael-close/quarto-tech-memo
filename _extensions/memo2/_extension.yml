@@ -20,6 +20,4 @@ contributes:
       notebook-links: false
       date: last-modified
       date-format: "DD-MMM-YYYY@HH:mm"
-      # -- custom settings for paper style --
-      columns: 2
-      main-font: "Libertinus Serif"
+      

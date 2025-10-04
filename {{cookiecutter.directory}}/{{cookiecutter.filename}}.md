@@ -22,7 +22,7 @@ author:
     email: third@email.ch
     orcid: 0000-0000-0000-0003
     affiliation: [{ref: 1}]
-    
+    corresponding: true
 affiliations:
   - id: 1
     name: Magic Technologies SA
@@ -32,10 +32,6 @@ affiliations:
     name: Another Corporate Inc
     city: Palo Alto
     country: USA
-  - id: 1
-    name: Magic Technologies I SA
-    city: Morges
-    country: Switzerland
 bibliography: biblio.bib
 format:
     memo1-typst: default
@@ -44,7 +40,8 @@ url: https://github.com/gael-close/quarto-tech-memo
 
 ## Overview 
 
-The minimum example contains all standard elements of a technical writing
+### Minimum example
+This minimum example contains all standard elements of a technical writing
 to illustrate the formatting styles provided by the [quarto-tech-memo extension](https://github.com/gael-close/quarto-tech-memo).
 Let's start with some math: $e^{\pi i} + 1 = 0$ is an inline equation, 
 [In memo style, margin notes are supported, 
@@ -66,10 +63,12 @@ $$ {#eq-field}
 ![Figure caption.](https://dummyimage.com/300x100){#fig-placeholder} 
 -->
 
+### Figures and tables
 
-@close2022 is a citation in IEEE style.
+Citations are included in IEEE style such as @close2022.
 @fig-placeholder shows a numbered figure.
 @tbl-placeholder is a numbered table.
+
 
 ![Figure caption.](figs/data-plot.png){#fig-placeholder width=3in }
 
@@ -83,6 +82,7 @@ $$ {#eq-field}
 
 {{< colbreak >}}
 
+### Code snippet and callouts
 Syntax highlighting is supported in code snippet too.
 Moreover, callout boxes are available for tips, notes, warnings, and important remarks,
 with appropriate icons or colors.
@@ -98,6 +98,8 @@ The manuscript is written in [Markdown](https://quarto.org/docs/authoring/markdo
 a plain-text **easy syntax**.
 :::
 
-## Dummy text
+### Dummy text
 
-*{{< lipsum 1 >}}*
+*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper leo nec quam aliquam consectetur. Donec sollicitudin elit nec nunc congue, quis malesuada nulla cursus. Mauris vulputate vehicula velit, et malesuada nunc luctus quis. Nullam efficitur leo sit amet odio iaculis consequat. Nam ultrices, orci fermentum gravida aliquet, eros eros accumsan neque, quis tincidunt lectus tortor a enim. Phasellus eu tellus et ipsum blandit pulvinar. Mauris in lorem vitae libero viverra tristique a non velit.*
+
+<!-- {{< lipsum 1 >}} -->
