@@ -62,21 +62,21 @@ function Span(span)
   end
 end
 
--- Format tables with automatic column widths
--- Resolving the hard coded full-width introduced by quarto built-in default table filter
-function Table (tbl)
-  -- print("## Inside table filter ##")
-  for i, cs in ipairs(tbl.colspecs) do
-    tbl.colspecs[i][2] = "auto"
+-- This single Table filter handles customizations for different output formats.
+function Table (elem)
+  -- For Typst: Format tables with automatic column widths, resolving the
+  -- hard-coded full-width introduced by Quarto's built-in default table filter.
+  if quarto.doc.is_format("typst") then
+    for i, _ in ipairs(elem.colspecs) do
+      elem.colspecs[i][2] = "auto"
+    end
+
   end
   
-  return tbl
-end
 
--- IEEE class does not support `longtable` without a workaround
--- See https://tex.stackexchange.com/a/224096 
--- Wrapper for longtable in two-column mode and then fix in latex preamble
-function Table (elem)
+  -- For PDF: Wrap tables in a custom `mytable` environment.
+  -- The IEEE class does not support `longtable` without a workaround.
+  -- See https://tex.stackexchange.com/a/224096
   if quarto.doc.is_format("pdf") then
     return {
       pandoc.RawBlock('latex', '\\begin{mytable}'),
@@ -84,14 +84,17 @@ function Table (elem)
       pandoc.RawBlock('latex', '\\end{mytable}')
     }
   end
+
+  -- Return the (potentially modified) table for all other formats.
+  return elem
 end
 
 
 -- Add bibliography heading if there is a bibliography
 -- and set the small font
 function Pandoc(doc)
-  if doc.meta.bibliography then
-    table.insert(doc.blocks, pandoc.RawBlock("typst", "#set text(size: 8pt);#set heading(numbering: none);\n= References"))  
+  if doc.meta.bibliography and quarto.doc.is_format("typst") then
+    table.insert(doc.blocks, pandoc.RawBlock("typst", "#set text(size: 8pt)\n#set heading(numbering: none)\n\n= References"))
   end
   return doc
 end

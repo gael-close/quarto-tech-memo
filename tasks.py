@@ -19,7 +19,7 @@ def test(c, gh=False, format='all'):
             cd ~/Downloads/new-dir;
             quarto render new-tech-memo.md --to {fmt}; 
             #zathura new-tech-memo.pdf;
-            convert -density 150 new-tech-memo.pdf -quality 90 -background white -alpha remove thumbnail-{fmt}.png;
+            magick -density 150 new-tech-memo.pdf -quality 90 -background white -alpha remove thumbnail-{fmt}.png;
             cp new-tech-memo.pdf new-tech-memo-{fmt}.pdf;
             ''')
     

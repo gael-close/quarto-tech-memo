@@ -18,7 +18,14 @@ All generated PDF files are included in the [examples](examples) folder.
 <img width=600 src=examples/collage.png>
 </a>
 
+## Prerequisites
 
+Install [Quarto](https://quarto.org/docs/get-started/) and [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+```bash
+pip install invoke cookiecutter
+# if the PDFlatex engine is to be used, install TinyTeX
+quarto install tinytex
+```
 
 ## Quick start
 
