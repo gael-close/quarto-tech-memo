@@ -13,4 +13,4 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
-      keep-typ: true
+      keep-typ: false

@@ -37,7 +37,7 @@ cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
 quarto render new-tech-memo.md 
 ```
 
-For the variant use the flags `--to memo2-typst` or `--to memo3-typst` or `--to slides-pdf`.
+For the variant use the flags `--to memo2-typst` or `--to memo3-typst` or `--to slides-typst`.
 
 Edit `new-tech-memo.md` in your favorite editor and re-run the render command or preview changes live with:
 
@@ -48,7 +48,7 @@ quarto preview new-tech-memo.md
 To use in an existing Quarto project as an extension, run
 
 ```bash
-quarto add https://github.com/gael-close/quarto-tech-memo/
+quarto add gael-close/quarto-tech-memo@master
 ```
 
 ---
@@ -68,7 +68,7 @@ They are still included inline in the main paragraph nevertheless.
 ## Development
 
 Run a test suite with [Invoke](https://www.pyinvoke.org/). 
-This will format the example memo in all variants
+This will format the example memo in all variants.
 
 ```bash
 invoke test (--gh)

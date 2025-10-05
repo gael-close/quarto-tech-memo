@@ -6,17 +6,17 @@ contributes:
   formats:
     typst:
       shortcodes:
-        - ../shortcodes.lua
+        - shortcodes.lua
       filters:
-        - ../custom.lua  
+        - custom.lua  
       template-partials:
         - typst-template.typ
         - typst-show.typ
       section-numbering: "1.1"
-      keep-typ: true
+      keep-typ: false
       abstract-title: Summary
       citeproc: true
-      csl: ../ieee-with-url.csl
+      csl: ieee-with-url.csl
       notebook-links: false
       date: last-modified
       date-format: "DD-MMM-YYYY@HH:mm"
