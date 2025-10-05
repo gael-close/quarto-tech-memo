@@ -48,7 +48,7 @@ quarto preview new-tech-memo.md
 To use in an existing Quarto project as an extension, run
 
 ```bash
-quarto add gael-close/quarto-tech-memo@master
+quarto add gael-close/quarto-tech-memo
 ```
 
 ---
