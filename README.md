@@ -17,39 +17,47 @@ All generated PDF files are included in the [examples](examples) folder.
 
 <img width=800 src=examples/collage.png>
 
-## Prerequisites
+## Usage in an existing quarto project
+
+To use in an existing Quarto project as an extension, run
+
+```bash
+# For just the 1-column variant
+quarto add gael-close/quarto-tech-memo@just-memo1
+
+# For all variants
+quarto add gael-close/quarto-tech-memo
+
+# render with 
+quarto render your-file.md --to memo1-typst
+```
+
+## Usage as a template from scratch
 
 Install [Quarto](https://quarto.org/docs/get-started/),
-then install extra dependencies with:
+then install extra Python dependencies with:
 
 ```bash
 pip install invoke cookiecutter
-# if the PDFlatex engine is to be used, install TinyTeX
-quarto install tinytex
 ```
 
-## Quick start
-
-To render the provided PDF example from scratch:
+To render the provided example:
 
 ```bash
 cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
 quarto render new-tech-memo.md 
 ```
 
-For the variant use the flags `--to memo2-typst` or `--to memo3-typst` or `--to slides-typst`.
+For the variants, use one of the flags `--to memo2-typst`, `--to memo3-typst`, `--to slides-typst`, `--to poster-typst`, or `--to ieee-pdf` 
 
-Edit `new-tech-memo.md` in your favorite editor and re-run the render command or preview changes live with:
+Edit `new-tech-memo.md` in your favorite editor and re-run the render command
+or preview changes (one every save) live with:
 
 ```bash
 quarto preview new-tech-memo.md
 ```
 
-To use in an existing Quarto project as an extension, run
-
-```bash
-quarto add gael-close/quarto-tech-memo
-```
+![](examples/preview-mode.gif)
 
 ---
 
@@ -71,11 +79,17 @@ Run a test suite with [Invoke](https://www.pyinvoke.org/).
 This will format the example memo in all variants.
 
 ```bash
-invoke test (--gh)
+invoke test (--gh) (--no-ieee)
 ```
 
-The `--gh` flag uses the GitHub repo instead of a local copy of the extension. 
+The `--gh` flag uses the GitHub repo instead of a local copy of the extension.
+The `--no-ieee` flag skips the legacy IEEE format which requires a LaTeX installation (install via: `quarto install tinytex`)
 
+To extract the conversion time for a given format:
+
+```bash
+invoke conversion-time --format memo1-typst
+```
 ### Lua filters
 
 To run the Lua filter standalone on a test file `dev.md`:

@@ -4,20 +4,23 @@ import os
 from invoke import task, Context
 
 @task
-def test(c, gh=False, format='all'):
+def test(c, gh=False, format='all', ieee=True):
     c.run(f'''
         cd ~/Downloads; rm -fr new-dir/*; 
         cookiecutter -f {'gh:gael-close' if gh else '$B4'}/quarto-tech-memo {'--no-input' if not gh else ''} ; cd new-dir;''')
     
     if format=='all': 
-        formats = ['memo1-typst', 'memo2-typst', 'poster-typst', 'ieee-pdf', 'slides-typst']
+        formats = ['memo1-typst', 'memo2-typst', 'poster-typst', 'slides-typst']
+        if ieee:
+            formats.append('ieee-pdf')
     else:
         formats = [format]
+    
     for fmt in formats:
     #for format in ['poster-typst']: 
         c.run(f'''
             cd ~/Downloads/new-dir;
-            quarto render new-tech-memo.md --to {fmt}; 
+            quarto render new-tech-memo.md --to {fmt};
             #zathura new-tech-memo.pdf;
             magick -density 150 new-tech-memo.pdf -quality 90 -background white -alpha remove thumbnail-{fmt}.png;
             cp new-tech-memo.pdf new-tech-memo-{fmt}.pdf;
@@ -31,6 +34,13 @@ def save(c):
         (cd examples; resvg --dpi 300 collage.svg collage.png;);  
         ''')
 
+import timeit
+@task
+def conversion_time(c, format='memo1-typst'):
+    f = lambda: c.run(f"cd ~/Downloads/new-dir; quarto render new-tech-memo.md --to {format};")
+    N = 4
+    elapsed = timeit.timeit(f, number=N)
+    print(f"Average time: {elapsed/N} seconds")
 
 #%%
 @task 
