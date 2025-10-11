@@ -1,5 +1,8 @@
 # Quarto Tech Memo
 
+> See [the companion medium article](https://medium.com/@gcl-75380/formatting-technical-memos-with-quarto-89b2d3583060) for more background.
+
+
 This is a [quarto extension](https://quarto.org/) to create brief technical memos in PDF 
 with the modern and ⚡fast Typst engine (built into Quarto).
 The memo style provides a professional single-column PDF layout 
@@ -63,16 +66,17 @@ quarto preview new-tech-memo.md
 ## Usage as Python script
 
 You can also use the provided Python script `md2memo.py` 
-to convert a markdown file to a memo PDF.
+to convert an existing markdown file to a memo PDF.
+The [uv package manager](https://docs.astral.sh/uv/) must be installed for this to work---one liner install instructions are provided on the website.
 
-uv must be installed for this to work: https://docs.astral.sh/uv/getting-started/installation/.
+* Download [the script](https://raw.githubusercontent.com/gael-close/quarto-tech-memo/main/md2memo.py) to a folder in your PATH, e.g. `~/.local/bin` in MacOS/Linux or `%USERPROFILE%\Scripts` in Windows.
+* In MacOS/Linux, make it executable with `chmod +x md2memo.py`.
+* When you run the script for the first time,
+`uv` will install all dependencies (including Quarto) in an isolated environment.
 
 ```bash
-uv run https://raw.githubusercontent.com/<user>/<repo>/<branch>/<path-to-script>.py
-md2memo.py input.md --format memo1
+md2memo.py new-tech-memo.md --to memo1
 ```
-
-
 
 ---
 
