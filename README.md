@@ -59,6 +59,21 @@ quarto preview new-tech-memo.md
 
 ![](examples/preview-mode.gif)
 
+
+## Usage as Python script
+
+You can also use the provided Python script `md2memo.py` 
+to convert a markdown file to a memo PDF.
+
+uv must be installed for this to work: https://docs.astral.sh/uv/getting-started/installation/.
+
+```bash
+uv run https://raw.githubusercontent.com/<user>/<repo>/<branch>/<path-to-script>.py
+md2memo.py input.md --format memo1
+```
+
+
+
 ---
 
 ## Details
