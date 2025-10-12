@@ -48,7 +48,7 @@ To render the provided example:
 
 ```bash
 cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
-quarto render new-tech-memo.md 
+quarto render your-file.md
 ```
 
 For the variants, use one of the flags `--to memo2-typst`, `--to memo3-typst`, `--to slides-typst`, `--to poster-typst`, or `--to ieee-pdf` 
@@ -76,7 +76,7 @@ and make the tool available in your shell.
 uv tool install git+https://github.com/gael-close/quarto-tech-memo
 
 # Usage
-quarto-tech-memo new-tech-memo.md --to memo1
+quarto-tech-memo you-file.md (--to memo1)
 ```
 
 ---
