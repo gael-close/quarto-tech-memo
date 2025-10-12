@@ -63,19 +63,20 @@ quarto preview new-tech-memo.md
 ![](examples/preview-mode.gif)
 
 
-## Usage as Python script
+## Usage as a Python CLI tool
 
-You can also use the provided Python script `md2memo.py` 
-to convert an existing markdown file to a memo PDF.
-The [uv package manager](https://docs.astral.sh/uv/) must be installed for this to work---one liner install instructions are provided on the website.
-
-* Download [the script](https://raw.githubusercontent.com/gael-close/quarto-tech-memo/main/md2memo.py) to a folder in your PATH, e.g. `~/.local/bin` in MacOS/Linux or `%USERPROFILE%\Scripts` in Windows.
-* In MacOS/Linux, make it executable with `chmod +x md2memo.py`.
-* When you run the script for the first time,
-`uv` will install all dependencies (including Quarto) in an isolated environment.
+Once can also use this as a standalone command-line-interface tool 
+to create a new PDF memo from an existing markdown file.
+The [uv package manager](https://docs.astral.sh/uv/) must be installed for this to work---one liner install instructions are provided on the website. 
+`uv tool install` will install all dependencies (including Quarto) in an isolated environment,
+and make the tool available in your shell.
 
 ```bash
-md2memo.py new-tech-memo.md --to memo1
+# Install (only needed once)
+uv tool install https://github.com/gael-close/quarto-tech-memo
+
+# Usage
+quarto-tech-memo new-tech-memo.md --to memo1
 ```
 
 ---

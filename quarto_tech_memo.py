@@ -1,14 +1,3 @@
-#!/usr/bin/env -S uv run --script
-
-
-# /// script
-# requires-python = ">=3.9"
-# dependencies = [
-#   "quarto-cli",
-#   "typer",
-# ]
-# ///
-
 import subprocess
 from pathlib import Path
 import os
@@ -36,7 +25,7 @@ class Format(str, Enum):
     f5 = "ieee"
 
 @app.command()
-def tasks1(arg1, to: Format=typer.Option("memo1-typst", help="Choose format")):
+def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format")):
     print(f"Converting markdown note {arg1} to format {to}")
     venv_path = Path(sys.executable).parent.parent
     print(f"Using Python from virtual environment at {venv_path}")
