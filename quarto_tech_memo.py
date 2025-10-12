@@ -35,7 +35,7 @@ def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format"), preview
 
     # Ensure quarto-tech-memo extension is installed
     with change_dir(Path(venv_path)):
-        if not (Path(venv_path)/"_extensions").exists():
+        if not (Path(venv_path)/"_extensions/gael-close").exists():
             print("Installing quarto-tech-memo extension")
             subprocess.run("quarto add gael-close/quarto-tech-memo --no-prompt --quiet", shell=True)
     
