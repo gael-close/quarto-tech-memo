@@ -49,7 +49,7 @@ To render the provided example:
 
 ```bash
 cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
-quarto-tech-memo your-file.md
+quarto-tech-memo new-tech-memo.md
 ```
 
 For the variants, use one of the flags `--to memo2`, `--to memo3`, `--to slides`, `--to poster`, or `--to ieee` 
