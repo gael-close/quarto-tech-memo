@@ -122,7 +122,9 @@ quarto pandoc dev.md -t typst --lua-filter custom.lua
 ### Run as uv tool
 
 Install the tool from the local copy of the repo with:
+
 ```bash
-uv tool install $B4/quarto-tech-memo
+z quarto-tech-memo
+uv tool install . -e
 ```
 
