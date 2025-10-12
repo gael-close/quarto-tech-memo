@@ -25,8 +25,8 @@ class Format(str, Enum):
     f5 = "ieee"
 
 @app.command()
-def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format")):
-    print(f"Converting markdown note {arg1} to format {to}")
+def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format"), preview: bool=False):
+    print(f"Converting markdown note {arg1} to format {to.value}")
     venv_path = Path(sys.executable).parent.parent
     print(f"Using Python from virtual environment at {venv_path}")
 
@@ -46,7 +46,7 @@ def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format")):
         pass
 
     # Render the markdown file to the specified format
-    subprocess.run(f"quarto render {arg1} --to {to}", shell=True)
+    subprocess.run(f"quarto render {arg1} --to {to} {'--preview' if preview else ''}", shell=True)
     
 if __name__ == "__main__":
     app()

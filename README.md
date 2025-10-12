@@ -76,7 +76,7 @@ and make the tool available in your shell.
 uv tool install git+https://github.com/gael-close/quarto-tech-memo
 
 # Usage
-quarto-tech-memo you-file.md (--to memo1)
+quarto-tech-memo you-file.md (--to memo1) (--preview)
 ```
 
 ---
