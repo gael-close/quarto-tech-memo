@@ -79,6 +79,10 @@ uv tool install git+https://github.com/gael-close/quarto-tech-memo
 quarto-tech-memo you-file.md (--to memo1) (--preview)
 ```
 
+## Usage inside a data science project
+
+See this repo https://github.com/gael-close/quarto-tech-paper for usage inside a [data science project](https://cookiecutter-data-science.drivendata.org/).
+
 ---
 
 ## Details
@@ -127,4 +131,5 @@ Install the tool from the local copy of the repo with:
 z quarto-tech-memo
 uv tool install . -e
 ```
+
 
