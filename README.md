@@ -1,6 +1,6 @@
 # Quarto Tech Memo
 
-> See [the companion medium article](https://medium.com/@gcl-75380/formatting-technical-memos-with-quarto-89b2d3583060) for more background.
+> See [the companion medium article](https://gcl-75380.medium.com/turning-your-notes-into-pdf-technical-memos-or-data-science-reports-ddd150273cc6) for more background.
 
 
 This is a [quarto extension](https://quarto.org/) to create brief technical memos in PDF 
@@ -131,5 +131,6 @@ Install the tool from the local copy of the repo with:
 z quarto-tech-memo
 uv tool install . -e
 ```
+
 
 
