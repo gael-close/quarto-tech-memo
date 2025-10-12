@@ -73,7 +73,7 @@ and make the tool available in your shell.
 
 ```bash
 # Install (only needed once)
-uv tool install https://github.com/gael-close/quarto-tech-memo
+uv tool install git+https://github.com/gael-close/quarto-tech-memo
 
 # Usage
 quarto-tech-memo new-tech-memo.md --to memo1
@@ -118,3 +118,11 @@ To run the Lua filter standalone on a test file `dev.md`:
 cd _extensions/meme1/lua-filters
 quarto pandoc dev.md -t typst --lua-filter custom.lua
 ```
+
+### Run as uv tool
+
+Install the tool from the local copy of the repo with:
+```bash
+uv tool install $B4/quarto-tech-memo
+```
+
