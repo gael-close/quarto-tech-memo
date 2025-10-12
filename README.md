@@ -16,67 +16,63 @@ Finally a slide deck variant using the [Clean Slide Theme](https://typst.app/uni
 The following screenshot shows all variants of the same document.
 **All are formatted from the same source** in a few seconds
 (the IEEE style, with the legacy Latex engine, dominates the rendering time).
-All generated PDF files are included in the [examples](examples) folder.
+All generated PDF files are included in the [examples](https://github.com/gael-close/quarto-tech-memo/tree/main/examples) folder.
 
-<img width=800 src=examples/collage.png>
+<img width=800 src="https://raw.githubusercontent.com/gael-close/quarto-tech-memo/master/examples/collage.png">
 
-## Usage in an existing quarto project
+## Usage as Python CLI tool
 
-To use in an existing Quarto project as an extension, run
+Install the tool, together with all dependencies, with:
 
 ```bash
-# For just the 1-column variant
-quarto add gael-close/quarto-tech-memo@just-memo1
+pip install quarto-tech-memo
 
-# For all variants
-quarto add gael-close/quarto-tech-memo
-
-# render with 
-quarto render your-file.md --to memo1-typst
+# preferably in a isolated environment with one of:
+# pipx install quarto_tech_memo
+# uv tool install quarto_tech_memo
 ```
 
-## Usage as a template from scratch
-
-Install [Quarto](https://quarto.org/docs/get-started/),
-then install extra Python dependencies with:
+Then use the `quarto-tech-memo` command to convert a markdown file to a polished PDF memo:
 
 ```bash
-pip install invoke cookiecutter
+quarto-tech-memo you-file.md (--to memo1) (--preview)
+```
+
+## Usage within the provided example
+
+Install the dependencies with:
+```bash
+pip install cookiecutter quarto-tech-memo
 ```
 
 To render the provided example:
 
 ```bash
 cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
-quarto render your-file.md
+quarto-tech-memo your-file.md
 ```
 
-For the variants, use one of the flags `--to memo2-typst`, `--to memo3-typst`, `--to slides-typst`, `--to poster-typst`, or `--to ieee-pdf` 
+For the variants, use one of the flags `--to memo2`, `--to memo3`, `--to slides`, `--to poster`, or `--to ieee` 
 
 Edit `new-tech-memo.md` in your favorite editor and re-run the render command
 or preview changes (one every save) live with:
 
 ```bash
-quarto preview new-tech-memo.md
+quarto-tech-memo new-tech-memo.md --preview
 ```
 
-![](examples/preview-mode.gif)
+![](https://raw.githubusercontent.com/gael-close/quarto-tech-memo/master/examples/preview-mode.gif)
 
+## Usage in an existing quarto project
 
-## Usage as a Python CLI tool
-
-Once can also use this as a standalone command-line-interface tool 
-to create a new PDF memo from an existing markdown file.
-The [uv package manager](https://docs.astral.sh/uv/) must be installed for this to work---one liner install instructions are provided on the website. 
-`uv tool install` will install all dependencies (including Quarto) in an isolated environment,
-and make the tool available in your shell.
+To use in an existing Quarto project as an extension, run
 
 ```bash
-# Install (only needed once)
-uv tool install git+https://github.com/gael-close/quarto-tech-memo
+# Install the extension (one time only)
+quarto add gael-close/quarto-tech-memo
 
-# Usage
-quarto-tech-memo you-file.md (--to memo1) (--preview)
+# render with: 
+quarto render your-file.md --to memo1-typst
 ```
 
 ## Usage inside a data science project
@@ -132,5 +128,10 @@ z quarto-tech-memo
 uv tool install . -e
 ```
 
+### Upload to PyPI
 
-
+```bash
+rm -fr dist/*
+uv build
+uvx uv-publish
+```

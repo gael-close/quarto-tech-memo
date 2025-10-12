@@ -25,7 +25,8 @@ class Format(str, Enum):
     f5 = "ieee"
 
 @app.command()
-def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format"), preview: bool=False):
+def tasks1(arg1: str = typer.Argument(..., help="markdown note to convert"), 
+           to: Format=typer.Option("memo1", help="Choose format"), preview: bool=False):
     print(f"Converting markdown note {arg1} to format {to.value}")
     venv_path = Path(sys.executable).parent.parent
     print(f"Using Python from virtual environment at {venv_path}")
