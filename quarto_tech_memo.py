@@ -46,7 +46,10 @@ def tasks1(arg1, to: Format=typer.Option("memo1", help="Choose format"), preview
         pass
 
     # Render the markdown file to the specified format
-    subprocess.run(f"quarto render {arg1} --to {to} {'--preview' if preview else ''}", shell=True)
+    if preview:
+        subprocess.run(f"quarto preview {arg1} --to {to}", shell=True)
+    else:
+        subprocess.run(f"quarto render {arg1} --to {to}", shell=True)
     
 if __name__ == "__main__":
     app()
