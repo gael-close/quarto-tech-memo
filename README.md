@@ -1,7 +1,7 @@
 # Quarto Tech Memo
 
-> See [the companion medium article](https://gcl-75380.medium.com/turning-your-notes-into-pdf-technical-memos-or-data-science-reports-ddd150273cc6) for more background.
-
+> See the companion article for more background:
+> G. Close, “Turning Your Notes into PDF Technical Memos and Data Science Reports,” Data Science Collective, Oct. 2025. Available: https://medium.com/data-science-collective/turning-your-notes-into-pdf-technical-memos-or-data-science-reports-ddd150273cc6
 
 This is a [quarto extension](https://quarto.org/) to create brief technical memos in PDF 
 with the modern and ⚡fast Typst engine (built into Quarto).
@@ -135,4 +135,5 @@ uv tool install . -e
 rm -fr dist/*
 uv build
 uvx uv-publish
+
 ```
