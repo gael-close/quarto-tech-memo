@@ -92,6 +92,7 @@ See this repo https://github.com/gael-close/quarto-tech-paper for usage inside a
 They are still included inline in the main paragraph nevertheless.
 * The slides template is taken from https://typst.app/universe/package/touying-quarto-clean/.
 * Custom Lua filters are included for various tweaks.
+* To get the ORCID icon, download the [fontawesome desktop variant](https://fontawesome.com/download).
 
 ## Development
 
