@@ -20,4 +20,5 @@ contributes:
       notebook-links: false
       date: last-modified
       date-format: "DD-MMM-YYYY@HH:mm"
+      shift-heading-levels: 0
   

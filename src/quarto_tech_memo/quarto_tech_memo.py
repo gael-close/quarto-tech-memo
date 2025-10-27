@@ -43,9 +43,9 @@ def tasks1(md_file: str = typer.Argument(..., help="markdown note to convert"),
             
     # Render the markdown file to the specified format
     if preview:
-        subprocess.run(f"quarto preview {md_file} --to {to}", shell=True)
+        subprocess.run(f'quarto preview "{md_file}" --to "{to}"', shell=True)
     else:
-        subprocess.run(f"quarto render {md_file} --to {to}", shell=True)
+        subprocess.run(f'quarto render "{md_file}" --to "{to}"', shell=True)
     
 if __name__ == "__main__":
     app()
