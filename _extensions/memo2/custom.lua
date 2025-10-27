@@ -99,6 +99,17 @@ function Pandoc(doc)
   return doc
 end
 
+-- Add wideblock div environment
+function Div(elem)
+  if elem.classes:includes("wideblock") then
+    return {
+      pandoc.RawBlock('typst', '#wideblock['),
+      elem,
+      pandoc.RawBlock('typst', ']')
+    }
+  end
+  return nil -- keep as is, or replace/transform if desired
+end
 
 
 

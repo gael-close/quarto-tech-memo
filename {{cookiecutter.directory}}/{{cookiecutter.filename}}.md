@@ -1,27 +1,30 @@
 ---
 title: Formatting Technical Memo with Quarto
 subtitle: A minimum example using the quarto-tech-memo extension
-abstract: |
- This is an minimum technical memo containing the usual elements of technical writing: 
- figure, table, equation, citation, bibliography, code snippet, and appendix.
- The document is rendered to PDF by Quarto with a custom extension which provides several styles.
- A memo style (inspired from Tufte handout style) for brief report,
- a 2-column paper style for scientific article, and a A3 poster style.
- The PDF is rendered with the modern Typst engine, which is built into Quarto.
+abstract: |-
+  This is an minimum technical memo containing the usual elements of technical writing: 
+  figure, table, equation, citation, bibliography, code snippet, and appendix.
+  The document is rendered to PDF by Quarto with a custom extension which provides several styles.
+  A memo style (inspired from Tufte handout style) for brief report,
+  a 2-column paper style for scientific article, and a A3 poster style.
+  The PDF is rendered with the modern Typst engine, which is built into Quarto.
 keywords: Quarto, technical writing, memo, paper, poster
 author:
   - name: First Author
     email: firstc@email.ch
     orcid: 0000-0000-0000-0001
-    affiliation: [{ref: 1}]
+    affiliation:
+      - ref: 1
   - name: Second Author
     email: second@email.ch
     orcid: 0000-0000-0000-0002
-    affiliation: [{ref: 2}]
+    affiliation:
+      - ref: 2
   - name: Third Author
     email: third@email.ch
     orcid: 0000-0000-0000-0003
-    affiliation: [{ref: 1}]
+    affiliation:
+      - ref: 1
     corresponding: true
 affiliations:
   - id: 1
@@ -34,7 +37,7 @@ affiliations:
     country: USA
 bibliography: biblio.bib
 format:
-    memo1-typst: default
+  memo1-typst: default
 url: https://github.com/gael-close/quarto-tech-memo
 ---
 
@@ -60,7 +63,11 @@ $$ {#eq-field}
 
 <!-- Uncomment to populate with more dummy text 
 {{< lipsum 1 >}}
-![Figure caption.](https://dummyimage.com/300x100){#fig-placeholder} 
+
+
+::: {.wideblock}
+![A figure extending into the right margin.](https://dummyimage.com/300x100){#fig-placeholder} 
+:::
 -->
 
 ### Figures and tables
