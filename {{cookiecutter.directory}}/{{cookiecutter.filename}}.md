@@ -49,7 +49,7 @@ to illustrate the formatting styles provided by the [quarto-tech-memo extension]
 Let's start with some math: $e^{\pi i} + 1 = 0$ is an inline equation, 
 [In memo style, margin notes are supported, 
 including small **inline** image.
-![figs/small-fig.png](figs/small-fig.png){width=3cm} 
+![](figs/small-fig.png){width=3cm} 
 They shouldn't be used in 2-column paper style.]{.aside}
 Eq. @eq-field is a numbered equation.
 Here is a physical quantity with unit: 1 μT (1 microtesla),
@@ -109,4 +109,9 @@ a plain-text **easy syntax**.
 
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper leo nec quam aliquam consectetur. Donec sollicitudin elit nec nunc congue, quis malesuada nulla cursus. Mauris vulputate vehicula velit, et malesuada nunc luctus quis. Nullam efficitur leo sit amet odio iaculis consequat. Nam ultrices, orci fermentum gravida aliquet, eros eros accumsan neque, quis tincidunt lectus tortor a enim. Phasellus eu tellus et ipsum blandit pulvinar. Mauris in lorem vitae libero viverra tristique a non velit.*
 
-<!-- {{< lipsum 1 >}} -->
+<!-- 
+{{< lipsum 1 >}} 
+
+quarto-tech-memo xxx.md
+rclone copyto xxx.pdf "MyDrive:Shared/Close2025 - Xxx.pdf"
+-->
