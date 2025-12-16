@@ -231,10 +231,6 @@
   outer: ( far: 5mm, width: 45mm, sep: 5mm ),
   book: false,
 )
-
 // Global block-quote styling
-#show quote.where(block: true): set block(
-  stroke: (left: 1.5pt + gray, rest: none),
-  inset: (left: 1em),
-  outset: (left: 0.5em, right: 0.5em),
-)
+#show quote.where(block: true): block.with(
+  stroke: (left:2pt + gray, rest: none))

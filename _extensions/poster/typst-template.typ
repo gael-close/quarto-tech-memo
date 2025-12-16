@@ -307,8 +307,6 @@
 #let note(body, ..arg) = [[#body]]
 
 // Global block-quote styling
-#show quote.where(block: true): set block(
-  stroke: (left: 1.5pt + gray, rest: none),
-  inset: (left: 1em),
-  outset: (left: 0.5em, right: 0.5em),
-)
+// Global block-quote styling
+#show quote.where(block: true): block.with(
+  stroke: (left:2pt + gray, rest: none))
