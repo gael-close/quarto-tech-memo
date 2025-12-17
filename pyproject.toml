@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "quarto-tech-memo"
-version = "0.2.2"
+version = "0.3.0"
 description = "A CLI script to convert a markdown note to a polished PDF tech memo using Quarto."
 authors = [{ name = "Gaël Close", email = "closega@gmail.com" }]
 requires-python = ">=3.8"

@@ -131,6 +131,8 @@ uv tool install . -e
 
 ### Upload to PyPI
 
+Increment version number in pyproject.toml, then run:
+
 ```bash
 rm -fr dist/*
 uv build
