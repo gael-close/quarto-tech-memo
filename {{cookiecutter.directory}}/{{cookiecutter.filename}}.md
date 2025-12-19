@@ -115,3 +115,7 @@ a plain-text **easy syntax**.
 quarto-tech-memo xxx.md
 rclone copyto xxx.pdf "MyDrive:Shared/Close2025 - Xxx.pdf"
 -->
+
+::: {.ignore}
+This is also ignored.
+:::
