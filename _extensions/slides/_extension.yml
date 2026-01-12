@@ -8,6 +8,7 @@ contributes:
       shortcodes:
         - shortcodes.lua
       filters:
+        - custom.lua
         - typst-environment.lua
         - revealjs.lua
       template-partials:

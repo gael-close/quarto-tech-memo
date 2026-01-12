@@ -36,7 +36,7 @@ def tasks1(md_file: str = typer.Argument(..., help="markdown note to convert"),
         
     # Ensure quarto-tech-memo extension is installed
     src=Path(md_file)
-    if not (src.parent/"_extensions/gael-close").exists():
+    if not ((src.parent/"_extensions/gael-close/memo1").exists() or (src.parent/"_extensions/memo1").exists()):
         with change_dir(src.parent):
             print("Installing quarto-tech-memo extension")    
             subprocess.run("quarto add gael-close/quarto-tech-memo --no-prompt --quiet", shell=True)
