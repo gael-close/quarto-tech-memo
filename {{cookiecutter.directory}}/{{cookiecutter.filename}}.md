@@ -11,7 +11,7 @@ abstract: |-
 keywords: Quarto, technical writing, memo, paper, poster
 author:
   - name: First Author
-    email: firstc@email.ch
+    email: first@email.ch
     orcid: 0000-0000-0000-0001
     affiliation:
       - ref: 1
@@ -111,11 +111,19 @@ a plain-text **easy syntax**.
 
 <!-- 
 {{< lipsum 1 >}} 
-
-quarto-tech-memo xxx.md
-rclone copyto xxx.pdf "MyDrive:Shared/Close2025 - Xxx.pdf"
 -->
 
 ::: {.ignore}
-This is also ignored.
+
+Compile and publish to with:
+
+```bash
+quarto-tech-memo xxx.md
+mv *.pdf "$BR2/Paperpile/Gdrive/Shared/Published Name.pdf"
+# OR: rclone copyto xxx.pdf "MyDrive:..."
+```
+
+Published file: [[Published Name.pdf|local]] | [Online](URL)
+
 :::
+

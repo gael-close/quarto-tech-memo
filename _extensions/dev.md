@@ -1,9 +1,9 @@
 
 
-Author$^1$
+[[Author]]$^1$
 
-This is a debug playground for custom Lua filters.
-See https://github.com/jgm/pandoc/issues/8988
+This is a debug playground for custom Lua [[filters]].
+See [[github/jgm/pandoc/issues/8988]] [🔗](https://github.com/jgm/pandoc/issues/8988)
 
 
 First sentence of a new paragraph.

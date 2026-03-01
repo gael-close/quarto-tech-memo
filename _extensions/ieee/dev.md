@@ -1,7 +1,7 @@
-This is a debug playground for custom Lua filters.
-See https://github.com/jgm/pandoc/issues/8988
+This is a debug playground for custom Lua [[filters]].
+See [[github/jgm/pandoc/issues/8988]] [🔗](https://github.com/jgm/pandoc/issues/8988)
 
-Type are problematic in Latex IEEE 2-column format.
+Type are problematic in [[Latex]] IEEE 2-column format.
 A workaround is needed. Wrap them and add workaround 
 from https://tex.stackexchange.com/a/224096
 
