@@ -3,6 +3,7 @@ name: Publish to PyPI
 on:
   release:
     types: [published]
+  workflow_dispatch:  # This enables the manual trigger button
 
 jobs:
   build-n-publish:
