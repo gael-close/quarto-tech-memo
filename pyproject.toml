@@ -11,7 +11,6 @@ requires-python = ">=3.8"
 readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [
-    "quarto-cli",
     "typer"]
 
 [project.scripts]
