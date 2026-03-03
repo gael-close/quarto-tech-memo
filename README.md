@@ -22,34 +22,20 @@ All generated PDF files are included in the [examples](https://github.com/gael-c
 
 ## Usage as Python CLI tool
 
-Install the tool, together with all dependencies, with:
+Install the quarto and the quarto-tech-memo tool with [uv](https://docs.astral.sh/uv/getting-started/installation/),
+and download the example:
 
 ```bash
-pip install quarto-tech-memo
-
-# preferably in a isolated environment with one of:
-# pipx install quarto_tech_memo
-# uv tool install quarto_tech_memo
+uv tool install quarto-cli --with typst
+uv tool install quarto-tech-memo
+uvx cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
 ```
 
-Then use the `quarto-tech-memo` command to convert a markdown file to a polished PDF memo:
-
+To render the provided example, use the newly installed `quarto-tech-memo` command 
+to convert a markdown file to a polished PDF memo:
+ 
 ```bash
-quarto-tech-memo you-file.md (--to memo1) (--preview)
-```
-
-## Usage within the provided example
-
-Install the dependencies with:
-```bash
-pip install cookiecutter quarto-tech-memo
-```
-
-To render the provided example:
-
-```bash
-cookiecutter -f gh:gael-close/quarto-tech-memo; cd new-dir;
-quarto-tech-memo new-tech-memo.md
+quarto-tech-memo new-tech-memo.md (--to memo1) (--preview)
 ```
 
 For the variants, use one of the flags `--to memo2`, `--to memo3`, `--to slides`, `--to poster`, or `--to ieee` 
@@ -65,7 +51,7 @@ quarto-tech-memo new-tech-memo.md --preview
 
 ## Usage in an existing quarto project
 
-To use in an existing Quarto project as an extension, run
+To use in an existing Quarto project as an extension run:
 
 ```bash
 # Install the extension (one time only)
@@ -139,3 +125,4 @@ uv build
 uvx uv-publish
 
 ```
+
