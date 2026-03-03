@@ -115,6 +115,13 @@ z quarto-tech-memo
 uv tool install . -e
 ```
 
+## Install tool from github
+
+```bash
+uv tool install git+https://github.com/gael-close/quarto-tech-memo --force
+```
+
+
 ### Upload to PyPI
 
 Increment version number in pyproject.toml, then run:
@@ -123,6 +130,6 @@ Increment version number in pyproject.toml, then run:
 rm -fr dist/*
 uv build
 uvx uv-publish
-
 ```
+
 
