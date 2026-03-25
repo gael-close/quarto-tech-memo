@@ -16,3 +16,6 @@ contributes:
         - typst-show.typ
       keep-typ: false
       shift-heading-levels: 0
+      citeproc: true
+      link-citation: true
+      csl: ieee-with-url.csl

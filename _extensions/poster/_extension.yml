@@ -14,6 +14,7 @@ contributes:
         - shortcodes.lua
       keep-typ: false
       citeproc: true
+      link-citation: true
       csl: ieee-with-url.csl
       date: last-modified
       date-format: "DD-MMM-YYYY (HH:mm)"

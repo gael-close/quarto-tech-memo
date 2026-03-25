@@ -16,6 +16,7 @@ contributes:
       keep-typ: false
       abstract-title: Summary
       citeproc: true
+      link-citation: true
       csl: ieee-with-url.csl
       notebook-links: false
       date: last-modified
