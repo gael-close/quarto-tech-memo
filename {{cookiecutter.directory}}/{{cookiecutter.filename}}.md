@@ -37,7 +37,8 @@ affiliations:
     country: USA
 bibliography: biblio.bib
 format:
-  memo1-typst: default
+  memo1-typst:
+    shift-heading-levels: 0
 url: https://github.com/gael-close/quarto-tech-memo
 ---
 
@@ -115,15 +116,21 @@ a plain-text **easy syntax**.
 
 ::: {.ignore}
 
-Compile and publish to with:
+## README (ignored in the final document)
+
+###  Compile and publish to cloud
 
 ```bash
 quarto-tech-memo xxx.md
-mv *.pdf "$BR2/Paperpile/Gdrive/Shared/Published Name.pdf"
-# OR: rclone copyto xxx.pdf "MyDrive:..."
+rclone copyto xxx.pdf "remote:.../Published Name.pdf"
 ```
 
 Published file: [[Published Name.pdf|local]] | [Online](URL)
+
+### Example: publish to Gdrive from Obsidian
+
+Specific example to publish to Gdrive from Obsidian: [[2503 My Terminal Snippets#^md2memo]].
+Optional: ajdust heading levels to match Obsidian convention. 
 
 :::
 
