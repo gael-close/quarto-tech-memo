@@ -13,7 +13,7 @@ contributes:
         - ieeeaccess.cls
         - ieee-preamble.tex
       csl: ieee-with-url.csl
-      shift-heading-level-by: -1
+      shift-heading-level-by: 0
       filters:
         - custom.lua
       shortcodes:

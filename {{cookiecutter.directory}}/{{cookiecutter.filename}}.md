@@ -37,14 +37,13 @@ affiliations:
     country: USA
 bibliography: biblio.bib
 format:
-  memo1-typst:
-    shift-heading-levels: 0
+  memo1-typst: default
 url: https://github.com/gael-close/quarto-tech-memo
 ---
 
-## Overview 
+# Overview
 
-### Minimum example
+## Minimum example
 This minimum example contains all standard elements of a technical writing
 to illustrate the formatting styles provided by the [quarto-tech-memo extension](https://github.com/gael-close/quarto-tech-memo).
 Let's start with some math: $e^{\pi i} + 1 = 0$ is an inline equation, 
@@ -71,7 +70,7 @@ $$ {#eq-field}
 :::
 -->
 
-### Figures and tables
+## Figures and tables
 
 Citations are included in IEEE style such as @close2022.
 @fig-placeholder shows a numbered figure.
@@ -90,7 +89,7 @@ Citations are included in IEEE style such as @close2022.
 
 {{< colbreak >}}
 
-### Code snippet and callouts
+## Code snippet and callouts
 Syntax highlighting is supported in code snippet too.
 Moreover, callout boxes are available for tips, notes, warnings, and important remarks,
 with appropriate icons or colors.
@@ -106,7 +105,7 @@ The manuscript is written in [Markdown](https://quarto.org/docs/authoring/markdo
 a plain-text **easy syntax**.
 :::
 
-### Dummy text
+## Dummy text
 
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper leo nec quam aliquam consectetur. Donec sollicitudin elit nec nunc congue, quis malesuada nulla cursus. Mauris vulputate vehicula velit, et malesuada nunc luctus quis. Nullam efficitur leo sit amet odio iaculis consequat. Nam ultrices, orci fermentum gravida aliquet, eros eros accumsan neque, quis tincidunt lectus tortor a enim. Phasellus eu tellus et ipsum blandit pulvinar. Mauris in lorem vitae libero viverra tristique a non velit.*
 
@@ -116,9 +115,9 @@ a plain-text **easy syntax**.
 
 ::: {.ignore}
 
-## README (ignored in the final document)
+# README (ignored in the final document)
 
-###  Compile and publish to cloud
+##  Compile and publish to cloud
 
 ```bash
 quarto-tech-memo xxx.md
@@ -127,7 +126,7 @@ rclone copyto xxx.pdf "remote:.../Published Name.pdf"
 
 Published file: [[Published Name.pdf|local]] | [Online](URL)
 
-### Example: publish to Gdrive from Obsidian
+## Example: publish to Gdrive from Obsidian
 
 Specific example to publish to Gdrive from Obsidian: [[2503 My Terminal Snippets#^md2memo]].
 Optional: ajdust heading levels to match Obsidian convention. 

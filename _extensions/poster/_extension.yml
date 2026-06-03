@@ -21,4 +21,4 @@ contributes:
       format-resources:
         - defaults.typ
         - utils.typ
-      shift-heading-level-by: -1
+      shift-heading-level-by: 0

@@ -69,6 +69,9 @@ See this repo https://github.com/gael-close/quarto-tech-paper for usage inside a
 
 ## Details
 
+* Section headings are marked with single `#`. 
+Adjust the [Typst option](https://quarto.org/docs/reference/formats/typst.html) 
+`shift-heading-level-by: -1` to fit your convention.
 * The memo template is based on: https://github.com/kazuyanagimoto/quarto-academic-typst.
 * The margin notes are formatted by the [marginalia](https://typst.app/universe/package/marginalia/) package.
 * In markdown, margin notes are should created with the `.aside` class: 
