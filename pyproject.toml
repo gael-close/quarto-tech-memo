@@ -18,3 +18,17 @@ quarto-tech-memo= "quarto_tech_memo.quarto_tech_memo:app"
 
 [project.urls]
 "Source" = "https://github.com/gael-close/quarto-tech-memo"
+
+# --- Pixi Configuration ---
+[tool.pixi.package]
+name = "quarto-tech-memo"
+version = "0.3.1"            # 1. Matched with [project.version]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+
+[tool.pixi.package.dependencies]
+python = ">=3.8"             # 2. Maps to your requires-python
+typer = "*"                  # 3. Maps to your python dependencies
+
+[tool.pixi.package.host-dependencies]
+setuptools = ">=61.0.0"      # 4. Maps to your [build-system] requirements
