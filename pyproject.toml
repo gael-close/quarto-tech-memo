@@ -26,6 +26,9 @@ version = "0.3.1"            # 1. Matched with [project.version]
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
 
+[tool.pixi.package.build]
+backend = { name = "pixi-build-python", version = "0.1.*" }
+
 [tool.pixi.package.dependencies]
 python = ">=3.8"             # 2. Maps to your requires-python
 typer = "*"                  # 3. Maps to your python dependencies
