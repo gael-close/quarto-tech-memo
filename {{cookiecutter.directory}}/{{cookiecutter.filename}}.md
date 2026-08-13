@@ -39,7 +39,6 @@ bibliography: biblio.bib
 format:
   memo1-typst: default
 url: https://github.com/gael-close/quarto-tech-memo
-#resource-path: ["../../../Attachments"] # Extra search path for figures
 ---
 
 # Overview
@@ -66,16 +65,9 @@ $$ {#eq-field}
 {{< lipsum 1 >}}
 
 
-A multi-panel figure extending into the right margin.
-
-::: {.wideblock layout-ncol=3}  
-![Panel A.](https://dummyimage.com/300x200)
-
-![Panel B.](https://dummyimage.com/300x200)
-
-![Panel C.](https://dummyimage.com/300x200)
+::: {.wideblock}
+![A figure extending into the right margin.](https://dummyimage.com/300x100){#fig-placeholder} 
 :::
-
 -->
 
 ## Figures and tables
@@ -123,22 +115,27 @@ a plain-text **easy syntax**.
 
 ::: {.ignore}
 
-# IGNORED 
+<<<<<<< HEAD
+# README (ignored in the final document)
 
-
-##  README 
-
-To compile and publish to the cloud, use commands as follows.
+##  Compile and publish to cloud
 
 ```bash
-cd ...
-quarto-tech-memo ...
-rclone copy ...
+quarto-tech-memo xxx.md
+rclone copyto xxx.pdf "remote:.../Published Name.pdf"
 ```
+=======
+Adjust the following command to compile and publish: 
 
-Published file: [[xxx.pdf]] | [Online](URL)
+![[2503 My Terminal Snippets#^md2memo]]
+>>>>>>> e386acd (Sync)
 
-Replace the placeholder by your own snippets like [[2503 My Terminal Snippets#^md2memo]].
+Published file: [[Published Name.pdf|local]] | [Online](URL)
+
+## Example: publish to Gdrive from Obsidian
+
+Specific example to publish to Gdrive from Obsidian: [[2503 My Terminal Snippets#^md2memo]].
+Optional: ajdust heading levels to match Obsidian convention. 
 
 :::
 
