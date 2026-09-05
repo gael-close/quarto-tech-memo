@@ -117,19 +117,18 @@ a plain-text **easy syntax**.
 
 # README (ignored in the final document)
 
+
 ##  Compile and publish to cloud
 
+Replace this by your own snippets like [[2503 My Terminal Snippets#^md2memo]].
+
 ```bash
-quarto-tech-memo xxx.md
-rclone copyto xxx.pdf "remote:.../Published Name.pdf"
+cd ...
+quarto-tech-memo ...
+rclone copy ...
 ```
 
-Published file: [[Published Name.pdf|local]] | [Online](URL)
-
-## Example: publish to Gdrive from Obsidian
-
-Specific example to publish to Gdrive from Obsidian: [[2503 My Terminal Snippets#^md2memo]].
-Optional: ajdust heading levels to match Obsidian convention. 
+Published file: [[xxx.pdf]] | [Online](URL)
 
 :::
 
