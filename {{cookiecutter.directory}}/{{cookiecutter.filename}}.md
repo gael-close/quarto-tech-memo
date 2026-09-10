@@ -39,7 +39,7 @@ bibliography: biblio.bib
 format:
   memo1-typst: default
 url: https://github.com/gael-close/quarto-tech-memo
-#resource-path: ["figs"] # Optional search path for figures
+#resource-path: ["../../Attachments"] # Extra search path for figures
 ---
 
 # Overview
