@@ -116,12 +116,11 @@ a plain-text **easy syntax**.
 
 ::: {.ignore}
 
-# README (ignored in the final document)
+# Ignored 
 
+##  README 
 
-##  Compile and publish to cloud
-
-Replace this by your own snippets like [[2503 My Terminal Snippets#^md2memo]].
+To compile and publish to the cloud, use commands as follows.
 
 ```bash
 cd ...
@@ -130,6 +129,8 @@ rclone copy ...
 ```
 
 Published file: [[xxx.pdf]] | [Online](URL)
+
+Replace the placeholder by your own snippets like [[2503 My Terminal Snippets#^md2memo]].
 
 :::
 
