@@ -39,7 +39,7 @@ bibliography: biblio.bib
 format:
   memo1-typst: default
 url: https://github.com/gael-close/quarto-tech-memo
-#resource-path: ["../../Attachments"] # Extra search path for figures
+#resource-path: ["../../../Attachments"] # Extra search path for figures
 ---
 
 # Overview
@@ -66,9 +66,16 @@ $$ {#eq-field}
 {{< lipsum 1 >}}
 
 
-::: {.wideblock}
-![A figure extending into the right margin.](https://dummyimage.com/300x100){#fig-placeholder} 
+A multi-panel figure extending into the right margin.
+
+::: {.wideblock layout-ncol=3}  
+![Panel A.](https://dummyimage.com/300x200)
+
+![Panel B.](https://dummyimage.com/300x200)
+
+![Panel C.](https://dummyimage.com/300x200)
 :::
+
 -->
 
 ## Figures and tables
@@ -116,7 +123,8 @@ a plain-text **easy syntax**.
 
 ::: {.ignore}
 
-# Ignored 
+# IGNORED 
+
 
 ##  README 
 
