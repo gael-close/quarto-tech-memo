@@ -115,27 +115,21 @@ a plain-text **easy syntax**.
 
 ::: {.ignore}
 
-<<<<<<< HEAD
-# README (ignored in the final document)
+# IGNORED 
 
-##  Compile and publish to cloud
+## README
+
+Adjust the following command to compile and publish.
 
 ```bash
 quarto-tech-memo xxx.md
 rclone copyto xxx.pdf "remote:.../Published Name.pdf"
 ```
-=======
-Adjust the following command to compile and publish: 
-
-![[2503 My Terminal Snippets#^md2memo]]
->>>>>>> e386acd (Sync)
 
 Published file: [[Published Name.pdf|local]] | [Online](URL)
 
-## Example: publish to Gdrive from Obsidian
 
-Specific example to publish to Gdrive from Obsidian: [[2503 My Terminal Snippets#^md2memo]].
-Optional: ajdust heading levels to match Obsidian convention. 
+See this specific example to publish to Gdrive from Obsidian: [[2503 My Terminal Snippets#^md2memo]].
 
 :::
 
