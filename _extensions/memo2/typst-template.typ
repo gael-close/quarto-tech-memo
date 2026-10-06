@@ -26,10 +26,10 @@
   lang: "en",
   region: "US",
   fontsize: 11pt,
-  font: "Libertinus Serif",                                // CHANGED              
-  sansfont: "Arial",
-  mathfont: "New Computer Modern Math",
-  monofont: "DejaVu Sans Mono",
+  font: ("Fira Sans", "Arial"),
+  sansfont: ("Fira Sans", "Arial"),
+  mathfont: ("Fira Math", "New Computer Modern Math"),
+  monofont: ("Fira Code", "DejaVu Sans Mono"),
   link-color: rgb("#483d8b"),
   // Structure settings
   sectionnumbering: none,

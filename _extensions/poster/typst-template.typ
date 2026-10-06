@@ -29,11 +29,9 @@
     melon: aqua,
   ),
   fonts: (
-    base: ("Arial"), 
-    raw: "DejaVu Sans Mono",
-    math: (
-      "New Computer Modern Math",
-    ), // good to have safe fallback
+    base: ("Fira Sans", "Arial"), 
+    raw: ("Fira Code", "DejaVu Sans Mono"),
+    math: ("Fira Math", "New Computer Modern Math"), // good to have safe fallback
   ),
   overrides: (:),
 ) = {

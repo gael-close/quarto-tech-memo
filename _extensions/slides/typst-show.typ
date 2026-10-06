@@ -13,11 +13,15 @@
     font-family-heading: ("$sansfont$",),
   $elseif(brand.typography.headings.family)$
     font-family-heading: $brand.typography.headings.family$,
+  $else$
+    font-family-heading: ("Fira Sans", "Arial"),
   $endif$
   $if(mainfont)$
     font-family-body: ("$mainfont$",),
   $elseif(brand.typography.base.family)$
     font-family-body: $brand.typography.base.family$,
+  $else$
+    font-family-body: ("Fira Sans", "Arial"),
   $endif$
   $if(font-weight-heading)$
     font-weight-heading: "$font-weight-heading$",

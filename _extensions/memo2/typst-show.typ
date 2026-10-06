@@ -94,6 +94,9 @@ $if(mathfont)$
 $elseif(brand.defaults.academic-typst.mathfont)$
   mathfont: ("$brand.defaults.academic-typst.mathfont$"),
 $endif$
+$if(monofont)$
+  monofont: ("$monofont$",),
+$endif$
 // Structure settings
 $if(section-numbering)$
   sectionnumbering: "$section-numbering$",
