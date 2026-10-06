@@ -85,12 +85,14 @@ They are still included inline in the main paragraph nevertheless.
 
 ## Development
 
-Run the test suite with [Task](https://taskfile.dev/).
-This will format the example memo in all variants.
+### Full test suite
+Run the full test suite with [Task](https://taskfile.dev/).
+This will format the example memo in all variants and also save the rendered PDFs.
 
 ```bash
-task test          # local extension
-task test GH=true  # from GitHub repo
+task test           # run from local extension
+#task test GH=true  # run from GitHub repo
+task save
 ```
 
 The `GH=true` flag uses the GitHub repo instead of a local copy of the extension.
