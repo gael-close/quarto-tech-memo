@@ -38,6 +38,10 @@ affiliations:
 bibliography: biblio.bib
 format:
   memo1-typst: default
+  html:
+    html-math-method: mathml
+    include-in-header:
+      text: "<style>math{font-family:inherit;}</style>"
 url: https://github.com/gael-close/quarto-tech-memo
 ---
 
@@ -52,10 +56,8 @@ including small **inline** image.
 ![](figs/small-fig.png){width=3cm} 
 They shouldn't be used in 2-column paper style.]{.aside}
 Eq. @eq-field is a numbered equation.
-Here is a physical quantity with unit: 1 μT (1 microtesla),
-note the thin non-breaking space.
-In IEEE legacy PDF, one need to use the math mode
-or the SI unit package to render the greek letters.
+Here is some physical quantities using unicode: $B_\mathrm{noise}=15$\ µT/√Hz.
+Note the "Narrow No-Break Space (NNBSP)" unicode `202F`. 
 
 $$
 \nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t} 
@@ -63,6 +65,7 @@ $$ {#eq-field}
 
 <!-- Uncomment to populate with more dummy text 
 {{< lipsum 1 >}}
+
 
 
 ::: {.wideblock}
