@@ -1,0 +1,52 @@
+version: '3'
+
+vars:
+  FORMATS: memo1 memo2 poster slides ieee
+
+tasks:
+
+  test:
+    desc: Instantiate example from local cookiecutter and render all formats
+    vars:
+      GH: '{{.GH | default "false"}}'
+    cmds:
+      - |
+        rm -fr new-dir/*
+        uvx cookiecutter -f {{if eq .GH "true"}}gh:gael-close/quarto-tech-memo{{else}}.{{end}} --no-input
+        {{if ne .GH "true"}}cd new-dir && quarto add ../ --no-prompt{{end}}
+      - for:
+          var: FORMATS
+        task: render-format
+        vars:
+          FMT: '{{.ITEM}}'
+
+  render-format:
+    internal: true
+    dir: '{{.ROOT_DIR}}/new-dir'
+    cmds:
+      - quarto-tech-memo new-tech-memo.md --to {{.FMT}}
+      - >
+        magick -density 150 new-tech-memo.pdf
+        -quality 90 -background white -alpha remove
+        thumbnail-{{.FMT}}.png
+      - cp new-tech-memo.pdf new-tech-memo-{{.FMT}}.pdf
+
+  save:
+    desc: Copy rendered PDFs to examples/ and rebuild collage PNG
+    cmds:
+      - cp new-dir/new-tech-memo-*.pdf examples/
+      - resvg --dpi 300 examples/collage.svg examples/collage.png
+
+  conversion-time:
+    desc: Benchmark quarto render (N=4 runs). Override format with FORMAT=memo2-typst
+    vars:
+      FORMAT: '{{.FORMAT | default "memo1-typst"}}'
+      N: 4
+    dir: new-dir
+    cmds:
+      - |
+        for i in $(seq 1 {{.N}}); do
+          t=$( { time quarto render new-tech-memo.md --to {{.FORMAT}}; } 2>&1 | grep real | awk '{print $2}' )
+          echo "Run $i: $t"
+        done
+        echo "Done ({{.N}} runs)"

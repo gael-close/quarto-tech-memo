@@ -56,7 +56,7 @@ including small **inline** image.
 ![](figs/small-fig.png){width=3cm} 
 They shouldn't be used in 2-column paper style.]{.aside}
 Eq. @eq-field is a numbered equation.
-Here is some physical quantities using unicode: $B_\mathrm{noise}=15$\ µT/√Hz.
+Here is some physical quantities using unicode: $B_\mathrm{noise}=15$\ μT/√Hz.
 Note the "Narrow No-Break Space (NNBSP)" unicode `202F`. 
 
 $$

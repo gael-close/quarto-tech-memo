@@ -5,6 +5,7 @@ contributes:
   formats:
     pdf:
       template: ieee-template.tex
+      pdf-engine: xelatex
       fig-format: png
       cite-method: citeproc
       link-citations: true # disable in final IEEE paper as per IEEE policy

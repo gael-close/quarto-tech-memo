@@ -85,27 +85,36 @@ They are still included inline in the main paragraph nevertheless.
 
 ## Development
 
-Run a test suite with [Invoke](https://www.pyinvoke.org/). 
+Run the test suite with [Task](https://taskfile.dev/).
 This will format the example memo in all variants.
 
 ```bash
-invoke test (--gh) (--no-ieee)
+task test          # local extension
+task test GH=true  # from GitHub repo
 ```
 
-The `--gh` flag uses the GitHub repo instead of a local copy of the extension.
-The `--no-ieee` flag skips the legacy IEEE format which requires a LaTeX installation (install via: `quarto install tinytex`)
+The `GH=true` flag uses the GitHub repo instead of a local copy of the extension.
+To skip the legacy IEEE format (requires a LaTeX installation via `quarto install tinytex`),
+edit `FORMATS` in `Taskfile.yml` to remove `ieee`.
 
-To extract the conversion time for a given format:
+To render a single format:
 
 ```bash
-invoke conversion-time --format memo1-typst
+task render-format FMT=memo1
 ```
+
+To benchmark the conversion time for a given format:
+
+```bash
+task conversion-time FORMAT=memo1-typst
+```
+
 ### Lua filters
 
 To run the Lua filter standalone on a test file `dev.md`:
 
-```
-cd _extensions/meme1/lua-filters
+```bash
+cd _extensions/memo1
 quarto pandoc dev.md -t typst --lua-filter custom.lua
 ```
 

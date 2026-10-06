@@ -1,8 +1,16 @@
 % Common packages
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket},math-style=ISO]{unicode-math}
+\setmainfont{texgyretermes-regular.otf}[
+  BoldFont=texgyretermes-bold.otf,
+  ItalicFont=texgyretermes-italic.otf,
+  BoldItalicFont=texgyretermes-bolditalic.otf]
+\setmathfont{texgyretermes-math.otf}
+% fontenc not needed with XeTeX+fontspec
 \usepackage{lipsum}
+% amsmath and amssymb are superseded by unicode-math
 \usepackage{amsmath}
-\usepackage{amssymb}
+% physics must load after unicode-math to avoid \eth, \hbar conflicts
 \usepackage{physics}
 \usepackage{siunitx}
 \usepackage{graphicx}
