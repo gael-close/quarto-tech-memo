@@ -1,0 +1,106 @@
+% Common packages
+\usepackage{fontspec}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket},math-style=ISO]{unicode-math}
+\setmainfont{TeX Gyre Termes}
+\setmathfont{TeX Gyre Termes Math}
+% fontenc not needed with XeTeX+fontspec
+\usepackage{lipsum}
+% amsmath and amssymb are superseded by unicode-math
+\usepackage{amsmath}
+% physics must load after unicode-math to avoid \eth, \hbar conflicts
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\usepackage{threeparttable}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{upgreek}
+\usepackage{orcidlink}
+\usepackage{textalpha}          %enable alpha beta unicode in text
+\usepackage[switch]{lineno}
+% monofont
+\setmonofont{Fira Code}[Scale=0.8]
+
+% References: add a titled section heading and apply \small.
+% Pandoc generates CSLReferences using a list environment; we wrap it rather than replace it.
+\AtBeginDocument{%
+  \let\OrigCSLReferences\CSLReferences
+  \let\endOrigCSLReferences\endCSLReferences
+  \renewenvironment{CSLReferences}[2]
+    {\section*{References}\small\OrigCSLReferences{#1}{#2}}
+    {\endOrigCSLReferences}%
+}
+
+%styled tabled generated from pandas
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{stfloats} % https://tex.stackexchange.com/a/324358
+\usepackage{placeins}
+\usepackage{pbalance}
+
+
+% highlight
+\def\highlight{1}
+\ifdefined\highlight
+    \newcommand\hl[1]{%
+        \bgroup
+        \hskip0pt\color{red!80!black}%
+        #1%
+        \egroup
+    }
+
+% Muted text (for filler text)
+\newcommand\muted[1]{%
+\bgroup
+\hskip0pt\color{black!40!}%
+#1%
+\egroup
+}
+
+% color links (Catppuccin Latte Blue #1e66f5)
+\definecolor{MyDSB}{RGB}{30,102,245}
+\usepackage{hyperref}
+\hypersetup{%
+  % Preprint: colorlinks OK
+  colorlinks=true, allcolors=MyDSB,
+  % Final: hide links
+  % hidelinks,
+  bookmarksnumbered=true,%
+  bookmarksopen=true}
+
+% version stamp
+\usepackage{datetime}
+\usdate
+\usepackage{tikz}\usetikzlibrary{calc}
+\newcommand\version[1]{\tikz[overlay,remember picture]{\node at ($(current page.west)+(0.6,0)$)[rotate=90]
+{\textcolor{gray!40}{\small \texttt{v#1}. Compiled on \today\ at \currenttime.}};}}
+
+
+% Fix table in 2-column format and enable wide table
+% https://tex.stackexchange.com/a/224096
+\makeatletter
+% My tables
+\newenvironment{mytable}[1][htbp]{
+    \begin{figure}[#1]
+    \footnotesize
+    \onecolumn
+    \begin{minipage}{0.5\textwidth}}
+{
+    \end{minipage}
+    \twocolumn
+    \end{figure}}
+
+\newenvironment{mywidetable}[1][tbp]{
+    \begin{figure*}[#1]
+    \footnotesize
+    \onecolumn
+    \begin{minipage}{1.0\textwidth}}
+{
+    \end{minipage}
+    \twocolumn
+    \end{figure*}}
+
+\makeatother

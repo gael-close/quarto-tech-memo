@@ -1,0 +1,29 @@
+# Brand shared by the slide formats (slides-pdf, slides-pptx, reveal).
+# Quarto applies brand.yml to revealjs and typst; pptx uses the template.
+color:
+  palette:
+    offwhite: "#fafafa"
+    ink: "#212121"
+    muted: "#6c6f85"
+    blue: "#1e66f5"
+    teal: "#179299"
+  background: offwhite
+  foreground: ink
+  primary: blue
+  secondary: muted
+  tertiary: teal
+
+typography:
+  fonts:
+    - family: Fira Sans
+      source: google
+    - family: Fira Code
+      source: google
+  base:
+    family: Fira Sans
+    size: 18pt
+    weight: 400
+  headings:
+    family: Fira Sans
+    weight: 400
+  monospace: Fira Code

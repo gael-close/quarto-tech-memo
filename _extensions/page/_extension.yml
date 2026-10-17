@@ -1,0 +1,25 @@
+title: Quarto Tech Memo (HTML Landing Page)
+author: Gaël Close
+version: 0.1.0
+quarto-required: ">=1.7.33"
+contributes:
+  formats:
+    html:
+      filters:
+        - custom.lua
+      theme:
+        - default
+        - catppuccin-latte.scss
+        - custom.scss
+      highlight-style: catppuccin-latte.theme
+      toc: true
+      toc-depth: 3
+      toc-location: right
+      toc-title: "Contents"
+      standalone: true
+      embed-resources: true
+      html-math-method: mathjax
+      other-formats: false
+      format-links: false
+      page-layout: article
+      shift-heading-level-by: 1

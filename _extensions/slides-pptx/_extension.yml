@@ -1,0 +1,16 @@
+title: Quarto Tech Memo (PPTX Slides)
+author: Gaël Close
+version: 0.1.0
+quarto-required: ">=1.7.33"
+contributes:
+  formats:
+    pptx:
+      reference-doc: template.pptx
+      shortcodes:
+        - shortcodes.lua
+      filters:
+        - custom.lua
+      slide-level: 2
+      shift-heading-level-by: 0
+      link-citations: true
+      csl: ieee-with-url.csl

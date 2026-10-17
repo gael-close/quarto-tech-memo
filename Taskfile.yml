@@ -1,0 +1,69 @@
+version: '3'
+
+vars:
+  FORMATS: memo1 memo2 poster slides-pdf slides-pptx ieee page reveal
+
+tasks:
+
+  test:
+    desc: Instantiate example from local cookiecutter and render all formats
+    vars:
+      GH: '{{.GH | default "false"}}'
+    cmds:
+      - |
+        rm -fr new-dir/*
+        uvx cookiecutter -f {{if eq .GH "true"}}gh:gael-close/quarto-tech-memo{{else}}.{{end}} --no-input
+        {{if ne .GH "true"}}cd new-dir && quarto add ../ --no-prompt{{end}}
+      - for:
+          var: FORMATS
+        task: render-format
+        vars:
+          FMT: '{{.ITEM}}'
+
+  render-format:
+    internal: true
+    dir: '{{.ROOT_DIR}}/new-dir'
+    cmds:
+      - quarto-tech-memo new-tech-memo.md --to {{.FMT}}
+      - |
+        if [ "{{.FMT}}" = "page" ]; then
+          uvx shot-scraper shot new-tech-memo.html -o thumbnail-page.png --width 1280
+          cp new-tech-memo.html new-tech-memo-page.html
+        elif [ "{{.FMT}}" = "reveal" ]; then
+          uvx shot-scraper shot new-tech-memo.html \
+            -o thumbnail-reveal.png --width 1280 --height 720 \
+            --wait 1500
+          cp new-tech-memo.html new-tech-memo-reveal.html
+        elif [ "{{.FMT}}" = "slides-pptx" ]; then
+          cp new-tech-memo.pptx new-tech-memo-slides-pptx.pptx
+        else
+          magick -density 150 new-tech-memo.pdf \
+            -quality 90 -background white -alpha remove \
+            thumbnail-{{.FMT}}.png
+          cp new-tech-memo.pdf new-tech-memo-{{.FMT}}.pdf
+        fi
+
+  save:
+    desc: Copy rendered PDFs, PPTX, and HTML to examples/ and rebuild collage PNG
+    cmds:
+      - cp new-dir/new-tech-memo-*.pdf examples/
+      - cp new-dir/new-tech-memo-*.pptx examples/
+      - cp new-dir/new-tech-memo-page.html examples/
+      - cp new-dir/thumbnail-page.png examples/
+      - cp new-dir/new-tech-memo-reveal.html examples/
+      - cp new-dir/thumbnail-reveal.png examples/
+      - resvg --dpi 300 examples/collage.svg examples/collage.png
+
+  conversion-time:
+    desc: Benchmark quarto render (N=4 runs). Override format with FORMAT=memo2-typst
+    vars:
+      FORMAT: '{{.FORMAT | default "memo1-typst"}}'
+      N: 4
+    dir: new-dir
+    cmds:
+      - |
+        for i in $(seq 1 {{.N}}); do
+          t=$( { time quarto render new-tech-memo.md --to {{.FORMAT}}; } 2>&1 | grep real | awk '{print $2}' )
+          echo "Run $i: $t"
+        done
+        echo "Done ({{.N}} runs)"

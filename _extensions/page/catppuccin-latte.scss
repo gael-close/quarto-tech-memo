@@ -1,0 +1,98 @@
+/*-- scss:defaults --*/
+
+// Catppuccin Latte palette
+$cat-base:      #fafafa; // Original Catppuccin Latte Base: #eff1f5
+$cat-mantle:    #e6e9ef;
+$cat-crust:     #dce0e8;
+$cat-surface0:  #ccd0da;
+$cat-surface1:  #bcc0cc;
+$cat-surface2:  #acb0be;
+$cat-overlay0:  #9ca0b0;
+$cat-subtext0:  #6c6f85;
+$cat-subtext1:  #5c5f77;
+$cat-text:      #4c4f69;
+$cat-lavender:  #7287fd;
+$cat-blue:      #1e66f5;
+$cat-sapphire:  #209fb5;
+$cat-sky:       #04a5e5;
+$cat-teal:      #179299;
+$cat-green:     #40a02b;
+$cat-yellow:    #df8e1d;
+$cat-peach:     #fe640b;
+$cat-maroon:    #e64553;
+$cat-red:       #d20f39;
+$cat-mauve:     #8839ef;
+
+$body-bg:                   $cat-base;
+$body-color:                $cat-text;
+$text-muted:                $cat-subtext0;
+
+$primary:                   $cat-blue;
+$secondary:                 $cat-mauve;
+$success:                   $cat-green;
+$info:                      $cat-sapphire;
+$warning:                   $cat-yellow;
+$danger:                    $cat-red;
+$light:                     $cat-mantle;
+$dark:                      $cat-text;
+
+$link-color:                $cat-blue;
+$link-hover-color:          $cat-lavender;
+
+$code-bg:                   $cat-mantle;
+$code-color:                $cat-text;
+$code-block-bg:             $cat-mantle;
+$code-block-border-left:    $cat-surface0;
+
+$border-color:              $cat-surface0;
+$toc-color:                 $cat-blue;
+$toc-active-border:         $cat-blue;
+$toc-inactive-border:       $cat-surface0;
+
+$callout-color-note:        $cat-blue;
+$callout-color-tip:         $cat-green;
+$callout-color-warning:     $cat-yellow;
+$callout-color-caution:     $cat-red;
+$callout-color-important:   $cat-red;
+
+/*-- scss:rules --*/
+
+h1, h2, h3, h4, h5, h6 {
+  color: $cat-text !important;
+}
+
+.callout-note .callout-header {
+  color: $cat-blue !important;
+}
+
+.callout-warning .callout-header {
+  color: $cat-yellow !important;
+}
+
+.callout-important .callout-header,
+.callout-caution .callout-header {
+  color: $cat-red !important;
+}
+
+.callout-tip .callout-header {
+  color: $cat-green !important;
+}
+
+.callout-body {
+  color: $cat-text !important;
+}
+
+.callout div.sourceCode {
+  background-color: $cat-mantle !important;
+  border: 1px solid $cat-surface0 !important;
+  border-radius: 4px;
+}
+
+.callout a {
+  color: $cat-blue !important;
+  text-decoration: underline;
+}
+
+.callout a:hover {
+  color: $cat-lavender !important;
+}

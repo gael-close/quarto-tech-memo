@@ -1,0 +1,9 @@
+/.quarto/
+**/*.quarto_ipynb
+/.luarc.json
+.DS_Store
+dist/
+*.egg-info/
+__pycache__/
+build/
+new-dir/
