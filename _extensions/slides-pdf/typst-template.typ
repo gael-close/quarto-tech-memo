@@ -43,12 +43,7 @@
       weight: self.store.font-weight-heading,
       font: self.store.font-family-heading,
     )
-    stack(
-      dir: ttb,
-      spacing: 0.1in,
-      pad(left: 0.4in, right: 0.433in, utils.call-or-display(self, self.store.header)),
-      line(length: 100%, stroke: 2pt + rgb("#179299")),
-    )
+    pad(left: 0.4in, right: 0.433in, utils.call-or-display(self, self.store.header))
   }
   let footer(self) = {
     set align(bottom)
@@ -140,7 +135,7 @@
   font-size: 18pt,
   font-family-heading: ("Fira Sans",),
   font-family-body: ("Fira Sans",),
-  font-weight-heading: "regular",
+  font-weight-heading: "bold",
   font-weight-body: "regular",
   font-weight-title: "regular",
   font-weight-subtitle: "regular",

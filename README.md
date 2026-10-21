@@ -96,7 +96,7 @@ Three slide formats share the same basic styling, so the deck looks the same whi
 * `--to slides-pptx`: editable PowerPoint deck, built from the reference template `_extensions/slides-pptx/template.pptx`.
 * `--to reveal`: Reveal.js HTML deck for live talks and web sharing.
 
-All use Fira Sans (headings and body), a 16:9 page of 13.333 × 7.5 in, a bottom-aligned slide title with a 2pt teal (`#179299`) rule below it, 18pt body text, and 14pt muted annotations (slide numbers).
+All use Fira Sans (headings and body), a 16:9 page of 13.333 × 7.5 in, a bold, bottom-aligned slide title, 18pt body text, and 14pt muted annotations (slide numbers).
 
 ```bash
 quarto-tech-memo new-tech-memo.md --to slides-pptx
